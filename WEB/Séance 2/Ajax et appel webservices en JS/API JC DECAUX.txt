@@ -1,0 +1,5 @@
+API JC DECAUX
+
+récupérer infos Stations VELIB Toulouse
+
+https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=90866e021aaa6ed8790cd89b85864c9ab5dbfed3

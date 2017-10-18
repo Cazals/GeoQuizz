@@ -1,0 +1,18 @@
+1  Move
+2  Browse owned places
+3  Sell a place
+4  Buy a place
+5  Browse profile
+6  BP - Edit Profile
+7  BP - Delete Profile
+8  Browse Ranking
+9  Places Management
+10 PcM - Delete Place
+11 PcM - Edit Place
+12 Add Place
+13 AP - By Address
+14 AP - By coordinates
+15 Players Management
+16 Pa - Browse player owned    places
+17 Pa - Delete player
+18 Browse Charts 

@@ -1,0 +1,36 @@
+MATERIAL DESIGN
+=> norme de web designe par Google
+
+----
+Introduction
+----
+https://youtu.be/Q8TXgCzxEnw
+
+----
+La norme officielle (bonnes pratiques de design)
+----
+https://material.io/
+https://material.io/guidelines/
+https://material.io/components/
+https://material.io/icons/
+
+----
+les frameworks CSS/JS qui implémente la norme Material Design
+----
+https://stackshare.io/stackups/material-design-lite-vs-material-ui-vs-materialize
+https://getmdl.io (par Google)
+http://materializecss.com
+
+----
+etudes de cas
+----
+http://materialdesignblog.com/tinder-app-material-design-concept/
+https://design.google/library/airbnb-communicating-clarity-and-charm/
+https://design.google/library/fabulous-motivating-app-engagement/
+
+----
+Inspirations !
+----
+Exemple d'applications (natives ou web app) ou web sites réalisés avec une approche Material Design
+https://beebom.com/best-material-design-apps-website/
+https://www.uplabs.com/material

@@ -1,0 +1,155 @@
+<!doctype html>
+<html>
+<head>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWSNSLXM2qISM2-RM01pGghDRFOK6LdLI"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<script>
+
+var geocoder = new google.maps.Geocoder();
+var carte;
+var creation=1;
+
+
+
+
+
+//------------------------------------------------------------------
+// récupérer ma position courante, afficher la carte et afficher un point correspondant sur ma carte
+// ------------------------------------------------------------------
+function callbackSucces(donnees) {
+    // je récupere le résultat de l'appel webservices
+    console.log(donnees);
+
+
+    affichercarte();
+
+    //var JSONTab = JSON.parse(donnees);
+    var JSONTab = donnees;
+
+    var obj;
+
+    for(var i=0;i<JSONTab.length;i++){
+        obj = JSONTab[i];
+       // console.log(obj.available_bikes + '-' + obj.status);
+
+        ajouterMarqueur(obj.position.lat,obj.position.lng,obj.status,obj.available_bikes);
+
+    }
+}
+
+
+
+
+
+
+function lireVelos(){
+
+    // appel web service type post
+    $.ajax({
+        url: "https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=90866e021aaa6ed8790cd89b85864c9ab5dbfed3",
+        type: "GET",
+        dataType: "json", // optionnel : format que je souhaite en réponse. si pas le cas je partirai en erreur!
+        success: callbackSucces, // fonction de callback
+        error: function(JSONstring) {
+            console.log("Erreur Ajax :" + JSONstring);
+        }
+    });
+
+}
+
+
+
+
+
+// -----------------------------------
+// fonctions qui gerent l'affichage d'une carte (fait une fois au début)
+// et l'ajout des marqueurs
+
+function ajouterMarqueur(latitude,longitude,titre,nbvelo) {
+
+	// je créé le marqueur
+    var couleur;
+	var point =new google.maps.LatLng(latitude,longitude) ;
+
+	if ( nbvelo > 5 ) {
+	    couleur="green";
+    }
+    else if ( nbvelo >= 1 && nbvelo <= 5 ){
+	    couleur="blue";
+    }
+    else if ( nbvelo < 1 ){
+        couleur="red";
+    }
+
+    if (titre !="OPEN"){
+        couleur="black";
+    }
+
+    iconess= "http://maps.google.com/mapfiles/ms/icons/" + couleur + "-dot.png";
+	var marker = new google.maps.Marker(
+	 { 
+		position: point, 
+		title:"nv velo:" + nbvelo,
+        icon : iconess
+	});
+	
+	// je place le marqueur sur la carte
+	marker.setMap(carte);
+	
+	// je centre la carte sur ce nouveau marqueur
+	//carte.panTo(point);
+
+
+}
+
+
+function affichercarte() {
+	
+	
+
+	//objet contenant des propriétés avec des identificateurs prédéfinis dans Google Maps permettant
+	//de définir des options d'affichage de notre carte
+	var options = {
+		center: new google.maps.LatLng(43.6,1.433333333),
+		zoom: 13,
+		mapTypeId: 'roadmap'
+	};
+	 
+	//constructeur de la carte qui prend en paramêtre le conteneur HTML
+	//dans lequel la carte doit s'afficher et les options
+	carte = new google.maps.Map(document.getElementById("divcarte"), options);
+			
+}
+
+
+</script>
+</head>
+
+
+<body>
+
+
+<div id="divcarte" style="width:500px;height:500px"></div>
+
+
+<script>
+
+	//recuperer_maposition();
+
+    lireVelos();
+
+
+
+	//setInterval(recuperer_maposition,3000);
+</script>
+
+</body>
+</html>
+
+
+
+
+

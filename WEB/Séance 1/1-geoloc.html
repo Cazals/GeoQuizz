@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<script>
+
+
+function geo_ok(objet) {
+	var latitude = objet.coords.latitude;
+	var longitude = objet.coords.longitude;
+	var altitude = objet.coords.altitude; // seulement sur firefox
+	document.getElementById('content').innerHTML = 'latitude : ' + latitude + '<br />' + 'longitude : ' + longitude + '<br />';
+}
+
+function geo_error(objet) {
+	alert(objet.message+" / "+objet.code);	 
+}
+
+function geo() {
+	if(navigator.geolocation){
+	
+		navigator.geolocation.getCurrentPosition(
+			geo_ok,
+			geo_error, 
+			{ enableHighAccuracy:true, maximumAge:5000, timeout:5000}
+		);
+		
+		// Ici j'affiche la carte et le point
+		
+		
+	} else {
+		alert('Erreur : pas de support de la géolocalisation dans votre navigateur');
+	}
+}
+</script>
+</head>
+
+
+<body>
+
+
+<div id="content"></div>
+<input type="button" onclick="geo();" value="geolocaliser">
+
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,24 @@
+
+	img {
+		-moz-box-shadow:5px 5px 10px #aaa;
+		-webkit-box-shadow:5px 5px 10px #aaa;
+		box-shadow:5px 5px 10px #aaa;
+		behavior:url(./PIE.htc);
+		/*filter:progid:DXImageTransform.Microsoft.Shadow(color='#aaaaaa', Direction=135, Strength=12); */
+	}	
+	
+	.ombre {
+		text-shadow:11px 11px 3px #345;
+		font-size:30px;
+		filter:progid:DXImageTransform.Microsoft.Shadow(color='#999999', Direction=135, Strength=4);
+		zoom:1;
+	}	
+	
+	
+	.div1 {
+	-moz-border-radius: 5px 10px 0px 5px; 
+	-webkit-border-radius: 5px 10px 0px 5px; 
+	border-radius: 5px 10px 0px 5px; 
+	behavior:url(./PIE.htc);
+	background-color:red;
+	}
