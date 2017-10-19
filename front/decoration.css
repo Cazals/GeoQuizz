@@ -1,0 +1,15 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+}
+.demo-card-wide {
+    margin:50px;
+    height: 600px;
+    width: 1280px;
+}
+#map {
+    height: 100%;
+    width: 100%;
+}
