@@ -4,12 +4,16 @@ html, body {
     padding: 0;
     background-color: #FAFAFA;
 }
-.demo-card-wide {
-    margin:50px;
-    height: 600px;
-    width: 1280px;
+
+.page-content{
+    height:1280px;
+    width:1600px
 }
-#map {
-    height: 100%;
+.demo-card-wide {
+    height:100%;
     width: 100%;
 }
+#map {
+     height: 100%;
+     width: 100%;
+ }

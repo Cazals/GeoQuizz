@@ -1,7 +1,6 @@
 // Using the function to create multiple markers
 
     var infowindow = new google.maps.InfoWindow({maxWidth: 300});
-
     function geocodeLatLng(location,title,body) {
         var geocoder = new google.maps.Geocoder;
         var input = location;
