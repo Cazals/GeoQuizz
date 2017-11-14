@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include './importScript.html' ?>
+
     <title>GeoQuizz</title>
 </head>
 <script>
@@ -14,10 +14,8 @@
 
     var styledMap = null;
     //TODO fix time for nightmode
-    var d = new Date.parse(Date.now());
-    var dTime = (d.getYear().toString())+"-"+(d.getMonth().toString())+"-"+(d.getDay().toString());
-    var dateExpected = new Date.parse(dTime+"T11:00:00");
-    if (d > dateExpected){
+    var h = new Date().getHours();
+    if (h > 17){
         styledMap = [
             {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
             {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
@@ -133,9 +131,9 @@
     <div class="mdl-layout__drawer">
         <span class="mdl-layout__title">GeoQuizz</span>
         <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#">Player</a>
+            <a class="mdl-navigation__link" href="#">Profile</a>
             <a class="mdl-navigation__link" href="#">Places</a>
-            <a class="mdl-navigation__link" href="#">Stats</a>
+            <a class="mdl-navigation__link" href="./stats/rank/ranking.php">Stats</a>
         </nav>
     </div>
     <main class="mdl-layout__content">
