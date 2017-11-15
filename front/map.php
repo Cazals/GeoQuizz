@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
+    <?php include './importScript.html' ?>
     <title>GeoQuizz</title>
 </head>
 <script>

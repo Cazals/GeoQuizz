@@ -10,7 +10,7 @@
  * Time: 22:33
  */
 ?>
-    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--4dp">
         <thead>
         <tr>
             <th class="mdl-data-table__cell--non-numeric">Player</th>
