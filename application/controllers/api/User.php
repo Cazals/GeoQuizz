@@ -47,7 +47,7 @@ class User extends CI_Controller {
     {
         $title = $this->input->post('title', TRUE);
 
-        if (!empty($title)) {
+        if (trim($title) != ''){
             $this->Model_user->post($title);
             echo json_encode('Product created');
         } else {

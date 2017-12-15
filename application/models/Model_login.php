@@ -25,21 +25,35 @@ class Model_login extends CI_Model {
 
 	function post($username,$password)
 	{
-        $this->db->select("UsrId")
+        $this->db->select('UsrId')
                  ->from($this->table)
-                 ->where("UsrLogin", $username)
-                 ->where("UsrPassWord", $password)
+                 ->where('UsrLogin', $username)
+                 ->where('UsrPassword', $password)
                  ->limit(1);
 
-        $test=$this->db->get();
+//            $id = $this->db->get()->result()
+        $json = $this->db->get()->result();
 
-        return  $username +$password +"rrtr";
-//        if (is_null($test)){
-//            return "non valable";
-//        }
-//        return "connecté";
+        if (empty($json)){
+            return array('code'=>1,'msg'=>'erreur');
+        }
+        else {
+            return array('code'=> 2, 'msg'=>'connecté');
+        }
 //
+//        if (count($json) > 0 ){
+//            $json = json_decode($json);
+//        }
+//
+//
+//
+//
+//        return $this->db->get()->result();
 
+//        if (count($test)>0){
+//
+//        }
+//        return (is_null($test[0]->UsrId) ? 'non valide' : 'connecté');
 	}
 
 	function put($id, $title)

@@ -2,22 +2,23 @@
 /**
  * Created by PhpStorm.
  * User: 1484901
- * Date: 13/12/2017
- * Time: 22:15
+ * Date: 15/12/2017
+ * Time: 15:20
  */
 
-class Login extends CI_Controller {
+class Question extends CI_Controller
+{
 
     function __construct()
     {
         parent::__construct();
         $this->load->database();
-        $this->load->model('Model_login');
+        $this->load->model('Model_question');
         header("Access-Control-Allow-Origin: *"); // CORS Origin enabled
     }
 
     //  User connection
-    public function connection()
+    public function getQuestion()
     {
         $content = file_get_contents("php://input");
 
@@ -25,12 +26,6 @@ class Login extends CI_Controller {
         if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
             throw new Exception('Request method must be POST!');
         }
-
-//        //Make sure that the content type of the POST request has been set to application/json
-//        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
-//        if(strcasecmp($contentType, 'application/json') != 0){
-//            throw new Exception('Content type must be: application/json');
-//        }
 
         //Receive the RAW post data.
         $content = trim(file_get_contents("php://input"));
@@ -43,10 +38,10 @@ class Login extends CI_Controller {
             throw new Exception('Received content contained invalid JSON!');
         }
 
-        $title = $this->Model_login->post($decoded[0]['username'],$decoded[0]['password'], TRUE);
+        $question = $this->Model_question->post($decoded[0]['cat'],$decoded[0]['difficulty'], TRUE);
 
-
-        echo json_encode($title);
+        echo $question;
+//        echo json_encode($question);
 
     }
 }

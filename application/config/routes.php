@@ -46,8 +46,12 @@ $route['api/v1/product/(:num)']['put']	  = 'api/v1/product/update/$1';
 $route['api/v1/product/(:num)']['delete'] = 'api/v1/product/delete/$1';
 
 $route['api/user']['get']			  = 'api/user';
-$route['api/user/(:num)']['get']			  = 'api/user/view/$1';
+$route['api/user/(:num)']['get']	  = 'api/user/view/$1';
+
 $route['api/login']['post']		  = 'api/login/connection';
+$route['api/question']['post']	  = 'api/question/getQuestion';
+
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
