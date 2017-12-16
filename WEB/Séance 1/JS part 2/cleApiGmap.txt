@@ -1,5 +1,0 @@
-https://developers.google.com/maps/documentation/javascript/get-api-key
-
-
-<script src="//maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
-
