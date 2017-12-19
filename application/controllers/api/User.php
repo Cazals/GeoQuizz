@@ -17,7 +17,7 @@ class User extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->UsrId), "login" => $row->UsrLogin, "points" => $row->UsrPointsBalance);
+                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "points" => $row->usrPointsBalance);
             }
             echo json_encode($result);
         } else {

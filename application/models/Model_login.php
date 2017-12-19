@@ -35,25 +35,12 @@ class Model_login extends CI_Model {
         $json = $this->db->get()->result();
 
         if (empty($json)){
-            return array('code'=>1,'msg'=>'erreur');
+            return array('code'=> 1,'msg'=>'erreur');
         }
         else {
             return array('code'=> 2, 'msg'=>'connecté');
         }
-//
-//        if (count($json) > 0 ){
-//            $json = json_decode($json);
-//        }
-//
-//
-//
-//
-//        return $this->db->get()->result();
 
-//        if (count($test)>0){
-//
-//        }
-//        return (is_null($test[0]->UsrId) ? 'non valide' : 'connecté');
 	}
 
 	function put($id, $title)
