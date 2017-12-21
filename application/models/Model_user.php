@@ -15,45 +15,45 @@ class Model_user extends CI_Model {
 
     function get_one($id)
     {
-        $this->db->select("UsrId,UsrLogin,UsrEmail,UsrFirstName,UsrLastName,UsrAddress,UsrPassword,UsrPointsBalance,UsrRegisterDate,UsrLastConnexionDate,StatusId")
+        $this->db->select("usrId,usrLogin,usrEmail,usrFirstName,usrLastName,usrAddress,usrPassword,usrPointsBalance,usrRegisterDate,usrLastConnectionDate,usrStsId")
             ->from($this->table)
-            ->where("UsrId", $id)
+            ->where("usrId", $id)
             ->limit(1);
 
         return $this->db->get();
     }
 
-    function post($UsrLogin,$UsrEmail,$UsrFirstName,$UsrLastName,$UsrAddress,$UsrPassword,$UsrPointsBalance,$UsrRegisterDate,$UsrLastConnexionDate,$StatusId)
+    function post($UsrLogin,$UsrEmail,$UsrFirstName,$UsrLastName,$UsrAddress,$UsrPassword,$UsrPointsBalance,$UsrRegisterDate,$UsrLastConnectionDate,$StatusId)
     {
         $data = array(
-            "UsrLogin" =>$UsrLogin,
-            "UsrEmail" =>$UsrEmail,
-            "UsrFirstName" =>$UsrFirstName,
-            "UsrLastName" =>$UsrLastName,
-            "UsrAddress" =>$UsrAddress,
-            "UsrPassword" =>$UsrPassword,
-            "UsrPointsBalance" =>$UsrPointsBalance,
-            "UsrRegisterDate" =>$UsrRegisterDate,
-            "UsrLastConnexionDate" =>$UsrLastConnexionDate,
-            "StatusId" =>$StatusId,
+            "usrLogin" =>$UsrLogin,
+            "usrEmail" =>$UsrEmail,
+            "usrFirstName" =>$UsrFirstName,
+            "usrLastName" =>$UsrLastName,
+            "usrAddress" =>$UsrAddress,
+            "usrPassword" =>$UsrPassword,
+            "usrPointsBalance" =>$UsrPointsBalance,
+            "usrRegisterDate" =>$UsrRegisterDate,
+            "usrLastConnectionDate" =>$UsrLastConnectionDate,
+            "usrStsId" =>$StatusId,
         );
 
         $this->db->insert($this->table, $data);
     }
 
-    function put($id, $title)
-    {
-        $data = array(
-            "title" => $title
-        );
-
-        $this->db->where("id", $id)
-            ->update($this->table, $data);
-    }
+//    function put($id, $title)
+//    {
+//        $data = array(
+//            "title" => $title
+//        );
+//
+//        $this->db->where("id", $id)
+//            ->update($this->table, $data);
+//    }
 
     function delete($id)
     {
-        $this->db->where_in("id", $id)
+        $this->db->where_in("usrId", $id)
             ->delete($this->table);
     }
 

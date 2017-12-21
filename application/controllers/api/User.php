@@ -17,7 +17,10 @@ class User extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "points" => $row->usrPointsBalance);
+                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
+                    "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
+                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
+                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
@@ -33,7 +36,10 @@ class User extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->UsrId), "login" => $row->UsrLogin, "points" => $row->UsrPointsBalance);
+                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
+                                    "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
+                                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
+                                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
@@ -45,15 +51,21 @@ class User extends CI_Controller {
     // Create a product
     public function create()
     {
-        $title = $this->input->post('title', TRUE);
 
-        if (trim($title) != ''){
-            $this->Model_user->post($title);
-            echo json_encode('Product created');
-        } else {
-            header("HTTP/1.0 400 Bad Request");
-            echo json_encode("400: Empty value");
-        }
+
+
+
+
+
+//        $title = $this->input->post('title', TRUE);
+//
+//        if (trim($title) != ''){
+//            $this->Model_user->post($title);
+//            echo json_encode('Product created');
+//        } else {
+//            header("HTTP/1.0 400 Bad Request");
+//            echo json_encode("400: Empty value");
+//        }
     }
 
     // Update a product
@@ -90,6 +102,10 @@ class User extends CI_Controller {
             echo json_encode("404: Product $id not found");
         }
     }
+
+
+
+
 
 }
 

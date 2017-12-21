@@ -49,6 +49,7 @@ $route['api/user']['get']			  = 'api/user';
 $route['api/user/(:num)']['get']	  = 'api/user/view/$1';
 
 $route['api/login']['post']		  = 'api/login/connection';
+$route['api/register']['post']	  = 'api/login/register';
 $route['api/question']['post']	  = 'api/question/getQuestion';
 
 
