@@ -45,14 +45,25 @@ $route['api/v1/product']['post']		  = 'api/v1/product/create';
 $route['api/v1/product/(:num)']['put']	  = 'api/v1/product/update/$1';
 $route['api/v1/product/(:num)']['delete'] = 'api/v1/product/delete/$1';
 
+
+
 $route['api/user']['get']			  = 'api/user';
 $route['api/user/(:num)']['get']	  = 'api/user/view/$1';
+$route['api/user/(:num)']['delete'] = 'api/user/delete/$1';
 
 $route['api/login']['post']		  = 'api/login/connection';
 $route['api/register']['post']	  = 'api/login/register';
 $route['api/question']['post']	  = 'api/question/getQuestion';
 
 $route['api/walk']['post']	  = 'api/walk/walkPlc';
+
+$route['api/place']['get']			  = 'api/place';
+$route['api/place/(:num)']['get']	  = 'api/place/view/$1';
+$route['api/place/(:num)']['delete'] = 'api/place/delete/$1';
+
+$route['api/transaction']['get']			  = 'api/transaction';
+$route['api/transaction/(:num)']['get']	  = 'api/transaction/view/$1';
+$route['api/transaction/(:num)']['delete'] = 'api/transaction/delete/$1';
 
 
 $route['404_override'] = '';

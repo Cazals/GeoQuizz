@@ -25,7 +25,7 @@ class User extends CI_Controller {
             echo json_encode($result);
         } else {
             header("HTTP/1.0 204 No Content");
-            echo json_encode("204: no products in the database");
+            echo json_encode("204: no Users in the database");
         }
     }
 
@@ -44,7 +44,7 @@ class User extends CI_Controller {
             echo json_encode($result);
         } else {
             header("HTTP/1.0 404 Not Found");
-            echo json_encode("404 : Product #$id not found");
+            echo json_encode("404 : User #$id not found");
         }
     }
 
@@ -64,7 +64,7 @@ class User extends CI_Controller {
 
             if (!empty($title)) {
                 $this->Model_user->put($id, $title);
-                echo json_encode("200: Product #$id updated");
+                echo json_encode("200: User #$id updated");
             } else {
                 header("HTTP/1.0 400 Bad Request");
                 echo json_encode("400: Empty value");
@@ -72,7 +72,7 @@ class User extends CI_Controller {
 
         } else {
             header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product #$id not found");
+            echo json_encode("404: User #$id not found");
         }
     }
 
@@ -82,10 +82,10 @@ class User extends CI_Controller {
         // If product exists
         if ($this->Model_user->get_one($id)->num_rows() == 1) {
             $this->Model_user->delete($id);
-            echo json_encode("200: Product #$id deleted");
+            echo json_encode("200: User #$id deleted");
         } else {
             header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: Product $id not found");
+            echo json_encode("404: User $id not found");
         }
     }
 
