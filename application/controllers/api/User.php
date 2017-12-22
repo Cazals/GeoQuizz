@@ -49,24 +49,10 @@ class User extends CI_Controller {
     }
 
     // Create a product
-    public function create()
-    {
-
-
-
-
-
-
-//        $title = $this->input->post('title', TRUE);
+//    public function create()
+//    {
 //
-//        if (trim($title) != ''){
-//            $this->Model_user->post($title);
-//            echo json_encode('Product created');
-//        } else {
-//            header("HTTP/1.0 400 Bad Request");
-//            echo json_encode("400: Empty value");
-//        }
-    }
+//    }
 
     // Update a product
     public function update($id)

@@ -52,6 +52,8 @@ $route['api/login']['post']		  = 'api/login/connection';
 $route['api/register']['post']	  = 'api/login/register';
 $route['api/question']['post']	  = 'api/question/getQuestion';
 
+$route['api/walk']['post']	  = 'api/walk/walkPlc';
+
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
