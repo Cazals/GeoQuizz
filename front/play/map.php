@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <?php include './importScript.html' ?>
+    <?php include '../importScript.html' ?>
     <title>GeoQuizz</title>
 </head>
 <script>
@@ -119,30 +119,16 @@
 </script>
 
 <body>
-
-<div class="mdl-layout mdl-js-layout">
-    <header class="mdl-layout__header">
-        <div class="mdl-layout-icon"></div>
-        <div class="mdl-layout__header-row">
-            <span class="mdl-layout__title">GeoQuizz</span>
-            <div class="mdl-layout-spacer"></div>
-        </div>
-    </header>
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout__title">GeoQuizz</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="#">Profile</a>
-            <a class="mdl-navigation__link" href="#">Places</a>
-            <a class="mdl-navigation__link" href="./stats/rank/ranking.php">Stats</a>
-        </nav>
-    </div>
+<div class="layoutHolder">
+    <?php include_once "../shared/navbar.php" ?>
     <main class="mdl-layout__content">
-        <div>
+        <div class="mdl-grid">
             <div class="page-content">
                 <div class="demo-card-wide mdl-card mdl-shadow--2dp">
-                    <div id="map"></div>
+                    <div id="map" class="mdl-cell--4-col-phone"></div>
                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDiqLa_cLhGPKGRxi4oW2DvyqM8hMPiu2Q&callback=initMap"
-                            async defer></script>
+                            async defer>
+                    </script>
                 </div>
             </div>
         </div>

@@ -1052,7 +1052,7 @@ abstract class CI_DB_driver {
 	/**
 	 * Calculate the aggregate query elapsed time
 	 *
-	 * @param	int	The number of decimal places
+	 * @param	int	The number of decimal places.php
 	 * @return	string
 	 */
 	public function elapsed_time($decimals = 6)
