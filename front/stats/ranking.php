@@ -29,7 +29,7 @@
                         <td class="mdl-data-table__cell--non-numeric">Freezer</td>
                         <td>10</td>
                         <td>1580</td>
-                        <td class="mdl-data-table__cell--non-numeric">76</td>
+                        <td>76</td>
                     </tr>
                     <tr>
                         <td class="mdl-data-table__cell--non-numeric">Ichigo</td>

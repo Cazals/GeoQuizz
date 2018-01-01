@@ -5,117 +5,90 @@
     <title>GeoQuizz</title>
 </head>
 <script>
-
-
-    var myLatLng = {
-        lat: 48.857031,
-        lng: 2.346371
-    };
-
-    var styledMap = null;
-    //TODO fix time for nightmode
-    var h = new Date().getHours();
-    if (h > 17){
-        styledMap = [
-            {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
-            {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
-            {
-                featureType: 'administrative.locality',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'poi',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'geometry',
-                stylers: [{color: '#263c3f'}]
-            },
-            {
-                featureType: 'poi.park',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#6b9a76'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry',
-                stylers: [{color: '#38414e'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#212a37'}]
-            },
-            {
-                featureType: 'road',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#9ca5b3'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry',
-                stylers: [{color: '#746855'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'geometry.stroke',
-                stylers: [{color: '#1f2835'}]
-            },
-            {
-                featureType: 'road.highway',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#f3d19c'}]
-            },
-            {
-                featureType: 'transit',
-                elementType: 'geometry',
-                stylers: [{color: '#2f3948'}]
-            },
-            {
-                featureType: 'transit.station',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#d59563'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'geometry',
-                stylers: [{color: '#17263c'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.fill',
-                stylers: [{color: '#515c6d'}]
-            },
-            {
-                featureType: 'water',
-                elementType: 'labels.text.stroke',
-                stylers: [{color: '#17263c'}]
-            }
-        ]
-    }
+    // Note: This example requires that you consent to location sharing when
+    // prompted by your browser. If you see the error "The Geolocation service
+    // failed.", it means you probably did not give permission for the browser to
+    // locate you.
 
     function initMap() {
-        var paris = {lat: 48.857031, lng: 2.346371};
+        var pos;
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                pos = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                myPosition.setPosition(pos);
+                map.setCenter(pos);
+
+
+            }, function () {
+                handleLocationError(true, myPosition, map.getCenter());
+            });
+        } else {
+            // Browser doesn't support Geolocation
+            handleLocationError(false, myPosition, map.getCenter());
+        }
+
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 17,
-            center: paris,
-            styles: styledMap,
             disableDefaultUI: true
+        });
+        //Marker for current position
+        var myPosition = new google.maps.Marker({
+            map: map,
+            title: 'My position',
+            animation: google.maps.Animation.DROP
+        });
+        var placeIcon = {
+            url: "../ressources/home-shape.png",
+            scaledSize: new google.maps.Size(40, 40) // scaled size
+        };
 
+        var contentString = '' + '<style>' +
+            '.demo-card-wide > .port { background: url("../ressources/port.jpg") center / cover' +
+            '}</style>' +
+            '<div class="demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone">' +
+            '<div class="mdl-card__title port">' +
+            '<h2 class="mdl-card__title-text">Port</h2>' +
+            '</div>' +
+            '<div class="mdl-card__supporting-text">' +
+            ' Ceci est le port de la ville. <br/>' +
+            'C\'est un endroit très touristique' +
+            '</div>' +
+            '<div class="mdl-card__actions mdl-card--border">' +
+            '<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Acheter pour 100 pts</a>' +
+            '</div>' +
+            '</div>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+        var places = new google.maps.Marker({
+            map: map,
+            title: 'Port',
+            icon: placeIcon,
 
+            position: {
+                lat: 45.778447,
+                lng: 4.809514
+            }
         });
 
-
-        var marker = new google.maps.Marker({
-            position: paris,
-            map: map
+        //INFOWINDOW for each places
+        places.addListener('click', function () {
+            infowindow.open(map, places);
         });
+
     }
 
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
+    }
 </script>
 
 <body>

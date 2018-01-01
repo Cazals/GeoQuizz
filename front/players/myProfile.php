@@ -8,9 +8,10 @@
     <main class="mdl-layout__content">
         <div class="mdl-grid">
             <div class="demo-card-image mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone">
-                <div class="mdl-card__title mdl-card--expand"></div>
+                <div class="mdl-card__title mdl-card--expand">
+                </div>
                 <div class="mdl-card__actions">
-                    <span class="demo-card-image__filename">Image.jpg</span>
+                    <span class="demo-card-image__filename">DevUpon</span>
                 </div>
             </div>
             <div class="demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone">
@@ -36,36 +37,26 @@
                 <table class="mdl-data-table mdl-js-data-table">
                     <thead>
                     <tr>
-                        <th class="mdl-data-table__cell--non-numeric">Pseudo</th>
-                        <th>Places Owned</th>
-                        <th>Points earned</th>
+                        <th class="mdl-data-table__cell--non-numeric">Places Owned</th>
+                        <th>Points obtained</th>
                         <th>Riddle answered</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Ronny</td>
-                        <td>12</td>
-                        <td>2250</td>
-                        <td>68</td>
+                        <td class="mdl-data-table__cell--non-numeric">Bellevue</td>
+                        <td>48</td>
+                        <td>4</td>
                     </tr>
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Freezer</td>
-                        <td>10</td>
-                        <td>1580</td>
-                        <td class="mdl-data-table__cell--non-numeric">76</td>
+                        <td class="mdl-data-table__cell--non-numeric">Riverdale</td>
+                        <td>15</td>
+                        <td>1</td>
                     </tr>
                     <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Ichigo</td>
-                        <td>11</td>
-                        <td>2020</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td class="mdl-data-table__cell--non-numeric">Superman</td>
-                        <td>8</td>
-                        <td>870</td>
-                        <td>18</td>
+                        <td class="mdl-data-table__cell--non-numeric">Southampton</td>
+                        <td>4</td>
+                        <td>1</td>
                     </tr>
                     </tbody>
                 </table>
