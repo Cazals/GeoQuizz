@@ -149,3 +149,23 @@ tr{
     font-size: 14px;
     font-weight: 500;
 }
+
+.demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background: url('./ressources/Bella.jpg')
+            bottom right 15%
+            no-repeat
+            #46B6AC;
+    background-size: cover;
+    background-position: center;
+}
+
+.mdl-button--fab {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+}
