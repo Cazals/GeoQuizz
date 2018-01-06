@@ -7,14 +7,14 @@ charger_joueur_depuis_serveur();
 function charger_joueur_depuis_serveur(){
     //simiulation a jarter
     for(var i=0;i<5;i++) {
-        creer_vignette_joueur_data("joueur " + i,i);
+        //creer_vignette_joueur_data("joueur " + i,i);
     }
 
     //Vrai appel
     $.ajax(
         {
             // Your server script to process the upload
-            url: '/monserveur/get_joueurs',
+            url: '/GeoQuizz/api/user/',
             type: 'GET',
 
             // Tell jQuery not to process data or worry about content-type
@@ -85,17 +85,19 @@ $('#bouton_enregistrer_joueur').on('click',function(){
 
 function creer_vignette_joueur_data(pseudo,id)
 {
-    var monJoueur={pseudo:pseudo,id:id};
-    creer_vignette_joueur(monJoueur)
+    var monJoueur={pseudo:pseudo,id:id,description:description};
+    creer_vignette_joueur(monJoueur);
 }
 
 function creer_vignette_joueur(un_joueur)
 {
     var pseudo_joueur="toto"; //en réalité ca devrait etre un_joueur.pseudo;
     var id_joueur = "5";
+    var description="todo";
     if(un_joueur != null){
-        pseudo_joueur=un_joueur.pseudo;
+        pseudo_joueur=un_joueur.FirstName + ' ' + un_joueur.LastName;
         id_joueur=un_joueur.id;
+        description=un_joueur.RegisterDate;
     }
 
 
@@ -115,7 +117,7 @@ function creer_vignette_joueur(un_joueur)
     titre_vignette_joueur2.addClass('mdl-card__title-text');
 
     var texte_vignette_joueur = jQuery('<div/>', {
-        text : "description"
+        text : description
     }).appendTo(vignette_joueur);
     texte_vignette_joueur.addClass('mdl-card__supporting-text');
 
@@ -151,16 +153,14 @@ function supprimer_vignette(vignette){
 
 
    //procéder à l'appel Ajajx pour supprimer sur le serveur le joueur , on a son Id dans la var id_joueur
-    var formData = new FormData();
-    formData.append("id_joueur", id_joueur);
+
 
     $.ajax(
         {
             // Your server script to process the upload
-            url: '/monserveur/delete_joueuer',
+            url: 'GeoQuizz/api/user/delete/' + id_joueur,
             type: 'POST',
 
-            data: formData,
             // Tell jQuery not to process data or worry about content-type
             // You must include these options!
             cache: false,

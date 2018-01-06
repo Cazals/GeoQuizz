@@ -9,7 +9,7 @@ class User extends CI_Controller {
         $this->load->model('Model_user');
         header("Access-Control-Allow-Origin: *"); // CORS Origin enabled
     }
-
+//TODO fix userLastConnection
     // Get all products
     public function index()
     {
@@ -19,8 +19,8 @@ class User extends CI_Controller {
             foreach ($data->result() as $row) {
                 $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
                     "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
-                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
-                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
+                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate);//,
+                    //"LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
