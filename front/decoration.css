@@ -5,6 +5,19 @@ html, body {
     background-color: #FAFAFA;
 }
 
+#mon_formulaire_ajout_joueur{
+    position: fixed;
+    height:  200px;
+    width:  400px;
+    background-color: red;
+    bottom:  0px;
+    top:0px;
+    right: 0px;
+    left: 0px;
+    margin: auto;
+    z-index: 1;
+}
+
 .page-content{
     height:1280px;
     width:1600px
@@ -168,4 +181,5 @@ tr{
     position: fixed;
     right: 2%;
     bottom: 2%;
+    z-index: 2;
 }

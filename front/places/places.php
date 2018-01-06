@@ -20,9 +20,9 @@
                     <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
                         Sell this place
                     </a>
-                </div>
                 <div class="mdl-card__menu">
-                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">                </div>
+
                         <i class="material-icons">share</i>
                     </button>
                 </div>

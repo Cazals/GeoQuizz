@@ -1,39 +1,54 @@
 <html>
 <head>
     <?php include '../importScript.html' ?>
+
 </head>
 <body>
+
+
 <div class="layoutHolder">
     <?php include_once '../shared/navbar.php' ?>
     <!-- Start your content here !! you dumb -->
     <main class="mdl-layout__content">
-        <div class="mdl-grid">
-            <?php for ($i = 0; $i < 5; $i++) {
-                echo '<div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col">
-                <div class="mdl-card__title mdl-card--expand">
-                    <h2 class="mdl-card__title-text">Pseudo</h2>
-                </div>
-                <div class="mdl-card__supporting-text">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Aenan convallis.
-                </div>
-                <div class="mdl-card__actions mdl-card--border">
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        Modify
-                    </a>
-                    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-                        Delete
-                    </a>
-                </div>
-            </div>';
-            } ?>
+        <div class="mdl-grid" id="ma_grille_de_joueurs">
+
+        <div class="demo-card-square mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col" id="maDiv" style="display: none">
+            <div class="mdl-card__title mdl-card--expand">
+                <h2 class="mdl-card__title-text">Pseudo</h2>
+            </div>
+            <div class="mdl-card__supporting-text">
+                Mon test Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Aenan convallis.
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="monBoutton2">
+                    Modify
+                </a>
+                <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_supprimer" id_joueur="4">
+                    Delete
+                </a>
+            </div>
         </div>
-        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        </div>
+        <button id="b_add"
+                class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
             <i class="material-icons">add</i>
         </button>
     </main>
 </div>
 
+<div id="mon_formulaire_ajout_joueur" style="display:none;">
+    <div class="mdl-card__actions mdl-card--border">
+        Creation d'un joueur, input a rajouter
+
+        <input type="text" id="c_pseudo" placeholder="Pseudo"> </input>
+        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="bouton_enregistrer_joueur">
+            Ajouter le joueur
+        </a>
+    </div>
+</div>
+
+<script type="text/javascript" src="editPlayer.js"></script>
 
 </body>
 </html>
