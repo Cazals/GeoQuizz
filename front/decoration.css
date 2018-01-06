@@ -1,0 +1,185 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FAFAFA;
+}
+
+#mon_formulaire_ajout_joueur{
+    position: fixed;
+    height:  200px;
+    width:  400px;
+    background-color: red;
+    bottom:  0px;
+    top:0px;
+    right: 0px;
+    left: 0px;
+    margin: auto;
+    z-index: 1;
+}
+
+.page-content{
+    height:1280px;
+    width:1600px
+}
+
+.demo-card-wide {
+    height:100%;
+    width: 100%;
+}
+#map {
+     height: 100%;
+     width: 100%;
+ }
+
+#view-source {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 40px;
+    margin-bottom: 40px;
+    z-index: 900;
+}
+tr{
+    text-align: center;
+}
+
+
+.material-icons{
+    color: orange;
+}
+
+.logo{
+    max-height:30px;
+    max-width: 20%;
+}
+
+.demo-card-wide.mdl-card {
+    width: 90%;
+}
+.demo-card-wide > .mdl-card__title {
+    color: black;
+    height: 172px;
+    background: url("ressources/googlemap.png") center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+    color: black;
+}
+
+.demo-card-square.mdl-card {
+    width: 40%;
+    height: auto;
+}
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background:
+            url('ressources/profil.png') bottom right 15% no-repeat #46B6AC;
+}
+
+.logout{
+    color: grey;
+}
+
+.content-grid {
+    max-width: 960px;
+}
+
+.demo-card-wide.mdl-card {
+    width: 512px;
+}
+.demo-card-wide > .mdl-card__title {
+    color: #fff;
+    height: 176px;
+    background-color: grey;
+}
+.demo-card-wide > .mdl-card__menu {
+    color: #fff;
+}
+
+.table-responsive {
+    min-height: .01%;
+    overflow-x: auto;
+}
+@media screen and (max-width: 767px) {
+    .table-responsive {
+        width: 100%;
+        margin-bottom: 15px;
+        overflow-y: hidden;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+        border: 1px solid #ddd;
+    }
+    .table-responsive > .table {
+        margin-bottom: 0;
+    }
+    .table-responsive > .table > thead > tr > th,
+    .table-responsive > .table > tbody > tr > th,
+    .table-responsive > .table > tfoot > tr > th,
+    .table-responsive > .table > thead > tr > td,
+    .table-responsive > .table > tbody > tr > td,
+    .table-responsive > .table > tfoot > tr > td {
+        white-space: nowrap;
+    }
+    .table-responsive > .table-bordered {
+        border: 0;
+    }
+    .table-responsive > .table-bordered > thead > tr > th:first-child,
+    .table-responsive > .table-bordered > tbody > tr > th:first-child,
+    .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+    .table-responsive > .table-bordered > thead > tr > td:first-child,
+    .table-responsive > .table-bordered > tbody > tr > td:first-child,
+    .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+        border-left: 0;
+    }
+    .table-responsive > .table-bordered > thead > tr > th:last-child,
+    .table-responsive > .table-bordered > tbody > tr > th:last-child,
+    .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+    .table-responsive > .table-bordered > thead > tr > td:last-child,
+    .table-responsive > .table-bordered > tbody > tr > td:last-child,
+    .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+        border-right: 0;
+    }
+    .table-responsive > .table-bordered > tbody > tr:last-child > th,
+    .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+    .table-responsive > .table-bordered > tbody > tr:last-child > td,
+    .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+        border-bottom: 0;
+    }
+}
+
+.demo-card-image.mdl-card {
+    width: 256px;
+    height: 256px;
+    background: url('ressources/Bella.jpg') center / cover;
+}
+.demo-card-image > .mdl-card__actions {
+    height: 52px;
+    padding: 16px;
+    background: rgba(0, 0, 0, 0.2);
+}
+.demo-card-image__filename {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.demo-card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+    color: #fff;
+    background: url('./ressources/Bella.jpg')
+            bottom right 15%
+            no-repeat
+            #46B6AC;
+    background-size: cover;
+    background-position: center;
+}
+
+.mdl-button--fab {
+    position: fixed;
+    right: 2%;
+    bottom: 2%;
+    z-index: 2;
+}
