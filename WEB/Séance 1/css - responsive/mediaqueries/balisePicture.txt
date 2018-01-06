@@ -1,7 +1,0 @@
-<picture>
-    <source srcset="small.jpg" media="(min-width: 992px) and (max-width: 1199px) ">
-	
-    <source srcset="medium.jpg" media="">
-    <source srcset="large.jpg" media="">
-    <img srcset="default.jpg" alt="">
-</picture>
