@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="4ade9601-c0ca-4cad-b82d-1074f8b5e5ff" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/api/Walk.php" afterPath="$PROJECT_DIR$/application/controllers/api/Walk.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Model_login.php" afterPath="$PROJECT_DIR$/application/models/Model_login.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/Model_walk.php" afterPath="$PROJECT_DIR$/application/models/Model_walk.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/decoration.css" afterPath="$PROJECT_DIR$/front/decoration.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/editPlayer.js" afterPath="$PROJECT_DIR$/front/players/editPlayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/playerAdmin.php" afterPath="$PROJECT_DIR$/front/players/playerAdmin.php" />
     </list>
@@ -34,21 +30,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Model_user.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Model_user.php">
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="12" />
+            <state relative-caret-position="-924">
+              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="819">
-              <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Welcome.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/api/v1/Product.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -67,28 +83,18 @@
       <file leaf-file-name="playerAdmin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="101" lean-forward="false" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="101" />
+            <state relative-caret-position="-336">
+              <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/shared/navbar.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1008">
-              <caret line="48" column="66" lean-forward="false" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="editPlayer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="editPlayer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="42">
-              <caret line="103" column="44" lean-forward="true" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
+            <state relative-caret-position="1806">
+              <caret line="86" column="65" lean-forward="false" selection-start-line="86" selection-start-column="65" selection-end-line="86" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -114,25 +120,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Model_walk.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Model_walk.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/Model_walk.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
+            <state relative-caret-position="-525">
               <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
               <folding>
                 <marker date="1515423141274" expanded="true" signature="344:478" ph="SELECT 1 as gqplace" />
                 <marker date="1515423141274" expanded="true" signature="3529:3692" ph="SELECT * FRO... gqwalk" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/api/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="14" column="39" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="39" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -144,6 +140,7 @@
       <find>mySQl</find>
       <find>\&lt;html\&gt;\n\&lt;head\&gt;\n    \&lt;\?php include \'\.\.\/importScript\.html\' \?\&gt;\n\n\&lt;\/head\&gt;\n\&lt;body\&gt;\n\n\n\&lt;div class\=\&quot;layoutHolder\&quot;\&gt;\n    \&lt;\?php include_once \'\.\.\/shared\/navbar\.php\' \?\&gt;\n    \&lt;\!\-\- Start your content here \!\! you dumb \-\-\&gt;\n    \&lt;main class\=\&quot;mdl\-layout__content\&quot;\&gt;\n        \&lt;div class\=\&quot;mdl\-grid\&quot; id\=\&quot;ma_grille_de_joueurs\&quot;\&gt;\n\n        \&lt;div class\=\&quot;demo\-card\-square mdl\-card mdl\-shadow\-\-2dp mdl\-cell mdl\-cell\-\-4\-col\&quot; id\=\&quot;maDiv\&quot; style\=\&quot;display\: none\&quot;\&gt;\n            \&lt;div class\=\&quot;mdl\-card__title mdl\-card\-\-expand\&quot;\&gt;\n                \&lt;h2 class\=\&quot;mdl\-card__title\-text\&quot;\&gt;Pseudo\&lt;\/h2\&gt;\n            \&lt;\/div\&gt;\n            \&lt;div class\=\&quot;mdl\-card__supporting\-text\&quot;\&gt;\n                Mon test Lorem ipsum dolor sit amet\, consectetur adipiscing elit\.\n                Aenan convallis\.\n            \&lt;\/div\&gt;\n            \&lt;div class\=\&quot;mdl\-card__actions mdl\-card\-\-border\&quot;\&gt;\n                \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect\&quot; id\=\&quot;monBoutton2\&quot;\&gt;\n                    Modify\n                \&lt;\/a\&gt;\n                \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect bouton_supprimer\&quot; id_joueur\=\&quot;4\&quot;\&gt;\n                    Delete\n                \&lt;\/a\&gt;\n            \&lt;\/div\&gt;\n        \&lt;\/div\&gt;\n        \&lt;\/div\&gt;\n        \&lt;button id\=\&quot;b_add\&quot;\n                class\=\&quot;mdl\-button mdl\-js\-button mdl\-button\-\-fab mdl\-js\-ripple\-effect mdl\-button\-\-colored\&quot;\&gt;\n            \&lt;i class\=\&quot;material\-icons\&quot;\&gt;add\&lt;\/i\&gt;\n        \&lt;\/button\&gt;\n    \&lt;\/main\&gt;\n\&lt;\/div\&gt;\n\n\&lt;div id\=\&quot;mon_formulaire_ajout_joueur\&quot; class \=\&quot;mdl\-card mdl\-shadow\-\-2dp mdl\-cell mdl\-cell\-\-8\-col\&quot; style\=\&quot;display\:none\;\&quot;\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect\&quot; id\=\&quot;bouton_enregistrer_joueur\&quot;\&gt;\n                Ajouter le joueur\n            \&lt;\/a\&gt;\n    \&lt;\/div\&gt;\n\n\&lt;script type\=\&quot;text\/javascript\&quot; src\=\&quot;editPlayer\.js\&quot;\&gt;\&lt;\/script\&gt;\n\n\&lt;\/body\&gt;\n\&lt;\/html\&gt;\n</find>
       <find>bella</find>
+      <find>modifer</find>
     </findStrings>
     <replaceStrings>
       <replace>lat</replace>
@@ -187,12 +184,12 @@
         <option value="$PROJECT_DIR$/application/models/Model_place.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/controllers/api/User.php" />
-        <option value="$PROJECT_DIR$/front/players/editPlayer.js" />
-        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
         <option value="$PROJECT_DIR$/front/decoration.css" />
         <option value="$PROJECT_DIR$/application/controllers/api/Walk.php" />
         <option value="$PROJECT_DIR$/application/models/Model_login.php" />
         <option value="$PROJECT_DIR$/application/models/Model_walk.php" />
+        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
+        <option value="$PROJECT_DIR$/front/players/editPlayer.js" />
       </list>
     </option>
   </component>
@@ -327,7 +324,7 @@
       <workItem from="1513864225315" duration="7987000" />
       <workItem from="1513931831286" duration="7745000" />
       <workItem from="1515263158330" duration="11338000" />
-      <workItem from="1515422950951" duration="188000" />
+      <workItem from="1515422950951" duration="8020000" />
     </task>
     <task id="LOCAL-00001" summary="Front: Added query to get users">
       <created>1515264581500</created>
@@ -336,11 +333,18 @@
       <option name="project" value="LOCAL" />
       <updated>1515264581500</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Front:Form made &#10;Back added modification on feature/back">
+      <created>1515423179284</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1515423179284</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33801000" />
+    <option name="totallyTimeSpent" value="41633000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -429,14 +433,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Front: Added query to get users" />
-    <option name="LAST_COMMIT_MESSAGE" value="Front: Added query to get users" />
+    <MESSAGE value="Front:Form made &#10;Back added modification on feature/back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Front:Form made &#10;Back added modification on feature/back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
     <entry file="file://$PROJECT_DIR$/front/decoration.css" />
     <entry file="file://$PROJECT_DIR$/front/map.php" />
     <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
@@ -458,20 +462,6 @@
     <entry file="file://$PROJECT_DIR$/front/stats/rank/ranking.php" />
     <entry file="file://$PROJECT_DIR$/front/map.php" />
     <entry file="file://$PROJECT_DIR$/application/controllers/api/v1/Map.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/api/v1/Product.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-528">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -610,14 +600,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="39" column="42" lean-forward="false" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/api/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -630,22 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="101" lean-forward="false" selection-start-line="14" selection-start-column="96" selection-end-line="14" selection-end-column="101" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="103" column="44" lean-forward="true" selection-start-line="103" selection-start-column="44" selection-end-line="103" selection-end-column="44" />
           <folding />
         </state>
       </provider>
@@ -668,12 +634,60 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Model_walk.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
+        <state relative-caret-position="-525">
           <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
           <folding>
             <marker date="1515423141274" expanded="true" signature="344:478" ph="SELECT 1 as gqplace" />
             <marker date="1515423141274" expanded="true" signature="3529:3692" ph="SELECT * FRO... gqwalk" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/api/v1/Product.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-924">
+          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-336">
+          <caret line="17" column="17" lean-forward="true" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1806">
+          <caret line="86" column="65" lean-forward="false" selection-start-line="86" selection-start-column="65" selection-end-line="86" selection-end-column="65" />
+          <folding />
         </state>
       </provider>
     </entry>
