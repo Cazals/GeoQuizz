@@ -6,16 +6,9 @@ html, body {
 }
 
 #mon_formulaire_ajout_joueur{
-    position: fixed;
-    height:  200px;
-    width:  400px;
-    background-color: red;
-    bottom:  0px;
-    top:0px;
-    right: 0px;
-    left: 0px;
-    margin: auto;
     z-index: 1;
+    margin:auto;
+    padding-top: 4%;
 }
 
 .page-content{

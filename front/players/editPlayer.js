@@ -56,7 +56,7 @@ $('#bouton_enregistrer_joueur').on('click',function(){
     $.ajax(
         {
             // Your server script to process the upload
-            url: '/monserveur/ajouter_joueuer',
+            url: '/GeoQuizz/api/user/',
             type: 'POST',
 
             data: formData,
