@@ -100,6 +100,3 @@ class Model_login extends CI_Model {
 //	}
 
 }
-
-/* End of file Model_product.php */
-/* Location: ./application/models/Model_product.php */
