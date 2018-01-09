@@ -45,7 +45,7 @@ class Model_walk extends CI_Model
         }
         //  4  Selecting place not owned by player, player at 50m from the place, place owned by another player
         $visitedowned=$this->db->query("SELECT 4 as code,plcId,plcName,plcAddress,plcLat,plcLon, (6366*acos(cos(radians(".$lat."))*cos(radians(plcLat))*cos(radians(plcLon)-
-                         radians(".$lon."))+sin(radians(".$lat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner  
+                         radians(".$lon."))+sin(radians(".$lat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner,plcWkPrice
                          FROM gqplace HAVING distance<=0.05 AND plcUsrIdOwner<>".intval($idplayer)." ORDER by distance ASC");
         if(!empty($visitedowned->result())){
             if(!empty($arrayResult)){
@@ -57,15 +57,27 @@ class Model_walk extends CI_Model
                 $arrayResult=json_encode($visitedowned->result());
             }
             // Check if walk less than 30 min ago
-            $rowvisited=$visitedowned->row(0);
-            $volastvisit=$this->db->query("SELECT * FROM gqwalk WHERE wkUsrIdOwner=".$rowvisited->plcUsrIdOwner."
-                                          AND wkDateWalk<DATE_SUB(NOW(), INTERVAL 30 MINUTE)");
+            $rowvisited=$visitedowned->row_array();
+            if (isset($rowvisited))
+            {
 
-            // Save transaction in the database
+                $volastvisit=$this->db->query("SELECT * FROM gqwalk WHERE wkUsrIdOwner=".intval($rowvisited['plcUsrIdOwner'])."
+                                          AND wkUsrIdWalker=".intval($idplayer)."
+                                          AND wkDateWalk>DATE_SUB(NOW(), INTERVAL 30 MINUTE)
+                                          AND wkDateWalk<NOW()");
+                if(empty($volastvisit->result())){ // Add walking points and walk datas
+                    $this->db->query("UPDATE gquser SET usrPointsBalance=usrPointsBalance+
+                                                     ".intval($rowvisited['plcWkPrice']));
+                    $this->db->query("INSERT INTO gqwalk (wkDateWalk,wkUsrIdOwner,wkUsrIdWalker,wkPlaceId) 
+                                      VALUES (NOW(),".intval($rowvisited['plcUsrIdOwner']).",".intval($idplayer)."
+                                      ,".intval($rowvisited['plcId']).")");
+                }
+                //echo json_encode($volastvisit->result());
+            }
 
         }
-        return $volastvisit;
-        //return $arrayResult;
+
+        return $arrayResult;
     }
 }
 // ----

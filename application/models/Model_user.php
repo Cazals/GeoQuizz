@@ -25,6 +25,7 @@ class Model_user extends CI_Model {
 
     function post($UsrLogin,$UsrEmail,$UsrFirstName,$UsrLastName,$UsrAddress,$UsrPassword,$UsrPointsBalance,$UsrRegisterDate,$UsrLastConnectionDate,$StatusId)
     {
+        date_default_timezone_set('Europe/Paris');
         $data = array(
             "usrLogin" =>$UsrLogin,
             "usrEmail" =>$UsrEmail,
@@ -33,8 +34,8 @@ class Model_user extends CI_Model {
             "usrAddress" =>$UsrAddress,
             "usrPassword" =>$UsrPassword,
             "usrPointsBalance" =>$UsrPointsBalance,
-            "usrRegisterDate" =>$UsrRegisterDate,
-            "usrLastConnectionDate" =>$UsrLastConnectionDate,
+            "usrRegisterDate" =>date("Y-m-d H:i:s"),
+            "usrLastConnectionDate" =>date("Y-m-d H:i:s"),
             "usrStsId" =>$StatusId,
         );
 
