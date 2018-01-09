@@ -43,9 +43,9 @@ class Model_place extends CI_Model {
         $con=mysqli_connect("localhost","root","root","geoquizz");
         $this->db->query("UPDATE gqplace SET plcName='".mysqli_real_escape_string($con,$plcName)."', 
                           plcAddress='".mysqli_real_escape_string($con,$plcAddress)."', plcLat=".$plcLat.", 
-                          plcLon=".$plcLon.", plcPrice=".intval($con,$plcPrice).", 
-                          plcWkPrice=".intval($con,$plcWkPrice).", plcUsrIdOwner=".intval($plcUsrIdOwner)."
-                          WHERE plcId=".intval($plcId));
+                          plcLon=".$plcLon.", plcPrice=".$plcPrice.", 
+                          plcWkPrice=".$plcWkPrice.", plcUsrIdOwner=".intval($plcUsrIdOwner)."
+                          WHERE plcId=".$plcId);
     }
 
     function delete($id)

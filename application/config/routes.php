@@ -55,7 +55,7 @@ $route['api/place']['get']			  = 'api/place';
 $route['api/place/(:num)']['get']	  = 'api/place/view/$1';
 $route['api/place/(:num)']['delete']  = 'api/place/delete/$1';
 $route['api/place']['post']	          = 'api/place/create';
-
+$route['api/place/(:num)']['post']	  = 'api/place/update/$1';
 
 $route['api/transaction']['get']			  = 'api/transaction';
 $route['api/transaction/(:num)']['get']	  = 'api/transaction/view/$1';

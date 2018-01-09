@@ -8,25 +8,43 @@ class Model_walk extends CI_Model
     }
     function post($plcLat, $plcLon,$usrId)
     {
+
         // 1    Selecting player's owned places
         $owned=$this->db->query("SELECT 1 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcUsrIdOwner 
                                  FROM gqplace WHERE plcUsrIdOwner=".intval($usrId));
         if(!empty($owned->result())){
-            $arrayResult=json_encode($owned->result());
+            //RETURN JSON_ENCODE($owned->result());
+            foreach ($owned->result() as $row)
+            {
+                if(!empty($arrayResult)){
+                    $tempArray = json_decode($arrayResult, true);
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
+                else{
+                    $tempArray=array();
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
+            }
         }
         //  2   Selecting nearby places, not owned by the player, where the player is not in
         $nearby=$this->db->query("SELECT 2 as code,plcId,plcName,plcAddress,plcLat,plcLon, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
                          radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner  
                          FROM gqplace HAVING distance<=30 AND distance>0.05 AND ( plcUsrIdOwner<>".intval($usrId)." OR plcUsrIdOwner IS NULL) ORDER by distance ASC");
         if(!empty($nearby->result())){
-            if(!empty($arrayResult)){
-                $tempArray = json_decode($arrayResult, true);
-                array_push($tempArray, $nearby->result());
-                $arrayResult=json_encode($tempArray);
-                //$arrayResult=array( $arrayResult,$nearby->result());
-            }
-            else {
-                $arrayResult=json_encode($nearby->result());
+            foreach ($nearby->result() as $row)
+            {
+                if(!empty($arrayResult)){
+                    $tempArray = json_decode($arrayResult, true);
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
+                else {
+                    $tempArray=array();
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
             }
         }
         //  3   Selecting place not owned by player, player at 50m from the place, place free no owner
@@ -34,13 +52,16 @@ class Model_walk extends CI_Model
                          radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner  
                          FROM gqplace HAVING distance<=0.05 AND plcUsrIdOwner IS NULL ORDER by distance ASC");
         if(!empty($visitedfree->result())){
-            if(!empty($arrayResult)){
-                $tempArray = json_decode($arrayResult, true);
-                array_push($tempArray, $visitedfree->result());
-                $arrayResult=json_encode($tempArray);
-            }
-            else {
-                $arrayResult=json_encode($visitedfree->result());
+            foreach ($visitedfree->result() as $row) {
+                if (!empty($arrayResult)) {
+                    $tempArray = json_decode($arrayResult, true);
+                    array_push($tempArray, $row);
+                    $arrayResult = json_encode($tempArray);
+                } else {
+                    $tempArray=array();
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
             }
         }
         //  4  Selecting place not owned by player, player at 50m from the place, place owned by another player
@@ -48,14 +69,18 @@ class Model_walk extends CI_Model
                          radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner,plcWkPrice
                          FROM gqplace HAVING distance<=0.05 AND plcUsrIdOwner<>".intval($usrId)." ORDER by distance ASC");
         if(!empty($visitedowned->result())){
-            if(!empty($arrayResult)){
-                $tempArray = json_decode($arrayResult, true);
-                array_push($tempArray, $visitedowned->result());
-                $arrayResult=json_encode($tempArray);
+            foreach ($visitedowned->result() as $row) {
+                if (!empty($arrayResult)) {
+                    $tempArray = json_decode($arrayResult, true);
+                    array_push($tempArray, $row);
+                    $arrayResult = json_encode($tempArray);
+                } else {
+                    $tempArray=array();
+                    array_push($tempArray, $row);
+                    $arrayResult=json_encode($tempArray);
+                }
             }
-            else {
-                $arrayResult=json_encode($visitedowned->result());
-            }
+
             // Check if walk less than 30 min ago
             $rowvisited=$visitedowned->row_array();
             if (isset($rowvisited))
