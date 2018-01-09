@@ -9,8 +9,8 @@ class User extends CI_Controller {
         $this->load->model('Model_user');
         header("Access-Control-Allow-Origin: *"); // CORS Origin enabled
     }
-//TODO fix userLastConnection
-    // Get all products
+
+    // Get all users
     public function index()
     {
         $data = $this->Model_user->get_all();
@@ -19,8 +19,8 @@ class User extends CI_Controller {
             foreach ($data->result() as $row) {
                 $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
                     "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
-                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate);//,
-                    //"LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
+                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
+                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
@@ -29,7 +29,7 @@ class User extends CI_Controller {
         }
     }
 
-    // Get a product
+    // Get a user
     public function view($id)
     {
         $data = $this->Model_user->get_one($id);
@@ -48,13 +48,13 @@ class User extends CI_Controller {
         }
     }
 
-    // Create a product
+    // Create a user
 //    public function create()
 //    {
 //
 //    }
 
-    // Update a product
+    // Update a user
     public function update($id)
     {
         $title = utf8_encode($this->input->input_stream("title", TRUE));
@@ -76,7 +76,7 @@ class User extends CI_Controller {
         }
     }
 
-    // Delete a product
+    // Delete a user
     public function delete($id)
     {
         // If product exists
