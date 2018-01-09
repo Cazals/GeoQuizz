@@ -32,6 +32,8 @@ class Model_login extends CI_Model {
         }
         else {
             return array('code'=> 2, 'msg'=>'Connecté');
+            //Update last connection
+            $this->db->query("UPDATE gquser SET usrLastConnexionDate=NOW() WHERE usrLogin=".$username);
         }
     }
     function userExists ($value,$dbName){
