@@ -39,17 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'welcome';
 
-$route['api/v1/product']['get']			  = 'api/v1/product';
-$route['api/v1/product/(:num)']['get']	  = 'api/v1/product/view/$1';
-$route['api/v1/product']['post']		  = 'api/v1/product/create';
-$route['api/v1/product/(:num)']['put']	  = 'api/v1/product/update/$1';
-$route['api/v1/product/(:num)']['delete'] = 'api/v1/product/delete/$1';
-
-
 
 $route['api/user']['get']			  = 'api/user';
 $route['api/user/(:num)']['get']	  = 'api/user/view/$1';
-$route['api/user/(:num)']['delete'] = 'api/user/delete/$1';
+$route['api/user/(:num)']['delete']   = 'api/user/delete/$1';
+$route['api/user']['post']	          = 'api/user/update';
 
 $route['api/login']['post']		  = 'api/login/connection';
 $route['api/register']['post']	  = 'api/login/register';
@@ -59,7 +53,9 @@ $route['api/walk']['post']	  = 'api/walk/walkPlc';
 
 $route['api/place']['get']			  = 'api/place';
 $route['api/place/(:num)']['get']	  = 'api/place/view/$1';
-$route['api/place/(:num)']['delete'] = 'api/place/delete/$1';
+$route['api/place/(:num)']['delete']  = 'api/place/delete/$1';
+$route['api/place']['post']	          = 'api/place/create';
+
 
 $route['api/transaction']['get']			  = 'api/transaction';
 $route['api/transaction/(:num)']['get']	  = 'api/transaction/view/$1';

@@ -17,9 +17,9 @@ class Place extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->plcId), "name" => $row->plcName, "Address" => $row->plcAddress,
-                    "Lat" =>$row->plcLat,"Lon" =>$row->plcLon,"Price" =>$row->plcPrice,
-                    "WalkPrice" =>$row->plcWkPrice,"Owner" =>$row->plcUsrIdOwner);
+                $result[] = array("plcId" => intval($row->plcId), "plcName" => $row->plcName, "plcAddress" => $row->plcAddress,
+                    "plcLat" =>$row->plcLat,"plcLon" =>$row->plcLon,"plcPrice" =>$row->plcPrice,
+                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner);
             }
             echo json_encode($result);
         } else {
@@ -35,9 +35,9 @@ class Place extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->plcId), "name" => $row->plcName, "Address" => $row->plcAddress,
-                    "Lat" =>$row->plcLat,"Lon" =>$row->plcLon,"Price" =>$row->plcPrice,
-                    "WalkPrice" =>$row->plcWkPrice,"Owner" =>$row->plcUsrIdOwner);
+                $result[] = array("plcId" => intval($row->plcId), "plcName" => $row->plcName, "plcAddress" => $row->plcAddress,
+                    "plcLat" =>$row->plcLat,"plcLon" =>$row->plcLon,"plcPrice" =>$row->plcPrice,
+                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner);
             }
             echo json_encode($result);
         } else {
@@ -46,11 +46,19 @@ class Place extends CI_Controller {
         }
     }
 
-    // Create a product
-//    public function create()
-//    {
-//
-//    }
+    public function create()
+    {
+        $post = file_get_contents('php://input');
+
+        $plcName = $_REQUEST['plcName'];
+        $plcAddress = $_REQUEST['plcAddress'];
+        $plcLat = $_REQUEST['plcLat'];
+        $plcLon = $_REQUEST['plcLon'];
+        $plcPrice = $_REQUEST['plcPrice'];
+        $plcWkPrice = $_REQUEST['plcWkPrice'];
+
+        $this->Model_place->post($plcName,$plcAddress,$plcLat,$plcLon,$plcPrice,$plcWkPrice);
+    }
 
     // Update a product
     public function update($id)

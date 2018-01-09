@@ -5,6 +5,7 @@ class Model_place extends CI_Model {
     function __construct()
     {
         parent::__construct();
+        $this->load->database();
         $this->table = "gqplace";
     }
 
@@ -23,28 +24,34 @@ class Model_place extends CI_Model {
         return $this->db->get();
     }
 
-    function post($plcId, $plcName, $plcAddress, $plcLat, $plcLon, $plcPrice, $plcWkPrice, $plcUsrIdOwner)
+    function post($plcName, $plcAddress, $plcLat, $plcLon, $plcPrice, $plcWkPrice)
     {
         $data = array(
-            "plcId" =>$plcId,
             "plcName" =>$plcName,
             "plcAddress" =>$plcAddress,
             "plcLat" =>$plcLat,
             "plcLon" =>$plcLon,
             "plcPrice" =>$plcPrice,
             "plcWkPrice" =>$plcWkPrice,
-            "plcUsrIdOwner" =>$plcUsrIdOwner,
         );
-
         $this->db->insert($this->table, $data);
+        echo json_encode($data);
     }
 
+    function patch($plcId,$plcName,$plcAddress,$plcLat,$plcLon,$plcPrice,$plcWkPrice,$plcUsrIdOwner)
+    {
+        $con=mysqli_connect("localhost","root","root","geoquizz");
+        $this->db->query("UPDATE gqplace SET plcName='".mysqli_real_escape_string($con,$plcName)."', 
+                          plcAddress='".mysqli_real_escape_string($con,$plcAddress)."', plcLat=".$plcLat.", 
+                          plcLon=".$plcLon.", plcPrice=".intval($con,$plcPrice).", 
+                          plcWkPrice=".intval($con,$plcWkPrice).", plcUsrIdOwner=".intval($plcUsrIdOwner)."
+                          WHERE plcId=".intval($plcId));
+    }
 
     function delete($id)
     {
         $this->db->where_in("plcId", $id)
             ->delete($this->table);
     }
-
 }
 

@@ -37,7 +37,7 @@ class Login extends CI_Controller {
             throw new Exception('Received content contained invalid JSON!');
         }
 
-        $logged = $this->Model_login->post($decoded[0]['username'],$decoded[0]['password'], TRUE);
+        $logged = $this->Model_login->post($decoded[0]['usrLogin'],$decoded[0]['usrPassword'], TRUE);
 
 
         echo json_encode($logged);
@@ -68,7 +68,7 @@ class Login extends CI_Controller {
 
 
         //Test Login
-        $testExistLog=$this->Model_login->userExists($decoded[0]['username'],'usrLogin', TRUE);
+        $testExistLog=$this->Model_login->userExists($decoded[0]['usrLogin'],'usrLogin', TRUE);
         if(!empty($testExistLog)){
             $LogExist= true;
             $New=false;
@@ -76,7 +76,7 @@ class Login extends CI_Controller {
 
 
         //Test Mail
-        $testExistMail=$this->Model_login->userExists($decoded[0]['mail'],'usrEmail', TRUE);
+        $testExistMail=$this->Model_login->userExists($decoded[0]['usrEmail'],'usrEmail', TRUE);
         if(!empty($testExistMail)){
             If ($LogExist){
                 echo json_encode(array($testExistLog,$testExistMail));
@@ -95,8 +95,8 @@ class Login extends CI_Controller {
         else {
             $this->load->model('Model_user');
 
-            $this->Model_user->post($decoded[0]['username'],$decoded[0]['mail'],$decoded[0]['firstname'],$decoded[0]['lastname'],
-                                    $decoded[0]['address'],$decoded[0]['password'],30,null,null,2);
+            $this->Model_user->post($decoded[0]['usrLogin'],$decoded[0]['usrEmail'],$decoded[0]['usrFirstName'],$decoded[0]['usrLastName'],
+                                    $decoded[0]['usrAddress'],$decoded[0]['usrPassword'],30,2);
             echo json_encode(array('code'=> 0,'msg'=>'Utilisateur créé avec succés'));
 
         }

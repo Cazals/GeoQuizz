@@ -17,10 +17,10 @@ class User extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
-                    "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
-                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
-                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
+                $result[] = array("usrId" => intval($row->usrId), "usrLogin" => $row->usrLogin, "usrEmail" => $row->usrEmail,
+                    "usrFirstName" =>$row->usrFirstName,"usrLastName" =>$row->usrLastName,"usrAddress" =>$row->usrAddress,
+                    "usrPassword" =>$row->usrPassword,"usrPointsBalance" =>$row->usrPointsBalance,"usrRegisterDate" =>$row->usrRegisterDate,
+                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
@@ -36,10 +36,10 @@ class User extends CI_Controller {
 
         if ($data->num_rows() > 0) {
             foreach ($data->result() as $row) {
-                $result[] = array("id" => intval($row->usrId), "login" => $row->usrLogin, "mail" => $row->usrEmail,
-                                    "FirstName" =>$row->usrFirstName,"LastName" =>$row->usrLastName,"Address" =>$row->usrAddress,
-                                    "Password" =>$row->usrPassword,"Points" =>$row->usrPointsBalance,"RegisterDate" =>$row->usrRegisterDate,
-                                    "LastConnection" =>$row->usrLastConnectionDate,"Status" =>$row->usrStsId);
+                $result[] = array("usrId" => intval($row->usrId), "usrLogin" => $row->usrLogin, "usrEmail" => $row->usrEmail,
+                    "usrFirstName" =>$row->usrFirstName,"usrLastName" =>$row->usrLastName,"usrAddress" =>$row->usrAddress,
+                    "usrPassword" =>$row->usrPassword,"usrPointsBalance" =>$row->usrPointsBalance,"usrRegisterDate" =>$row->usrRegisterDate,
+                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId);
             }
             echo json_encode($result);
         } else {
@@ -48,32 +48,40 @@ class User extends CI_Controller {
         }
     }
 
-    // Create a user
-//    public function create()
-//    {
-//
-//    }
+
 
     // Update a user
-    public function update($id)
+    public function update()
     {
-        $title = utf8_encode($this->input->input_stream("title", TRUE));
+        $content = file_get_contents("php://input");
 
-        // If product exists
-        if ($this->Model_user->get_one($id)->num_rows() == 1) {
-
-            if (!empty($title)) {
-                $this->Model_user->put($id, $title);
-                echo json_encode("200: User #$id updated");
-            } else {
-                header("HTTP/1.0 400 Bad Request");
-                echo json_encode("400: Empty value");
-            }
-
-        } else {
-            header("HTTP/1.0 404 Not Found");
-            echo json_encode("404: User #$id not found");
+        //Make sure that it is a POST request.
+        if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+            throw new Exception('Request method must be POST!');
         }
+
+        //Receive the RAW post data.
+        $content = trim(file_get_contents("php://input"));
+
+        //Attempt to decode the incoming RAW post data from JSON.
+        $decoded = json_decode($content, true);
+
+        //If json_decode failed, the JSON is invalid.
+        if(!is_array($decoded)){
+            throw new Exception('Received content contained invalid JSON!');
+        }
+
+        $updated = $this->Model_user->patch(
+                    $decoded[0]['usrId'],
+                    $decoded[0]['usrLogin'],
+                    $decoded[0]['usrEmail'],
+                    $decoded[0]['usrFirstName'],
+                    $decoded[0]['usrLastName'],
+                    $decoded[0]['usrAddress'],
+                    $decoded[0]['usrPassword'],
+                    $decoded[0]['usrPointsBalance'],
+                    $decoded[0]['usrStsId'],
+                    TRUE);
     }
 
     // Delete a user

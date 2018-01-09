@@ -23,34 +23,34 @@ class Model_user extends CI_Model {
         return $this->db->get();
     }
 
-    function post($UsrLogin,$UsrEmail,$UsrFirstName,$UsrLastName,$UsrAddress,$UsrPassword,$UsrPointsBalance,$UsrRegisterDate,$UsrLastConnectionDate,$StatusId)
+    function post($usrLogin,$usrEmail,$usrFirstName,$usrLastName,$usrAddress,$usrPassword,$usrPointsBalance,$usrStsId)
     {
         date_default_timezone_set('Europe/Paris');
         $data = array(
-            "usrLogin" =>$UsrLogin,
-            "usrEmail" =>$UsrEmail,
-            "usrFirstName" =>$UsrFirstName,
-            "usrLastName" =>$UsrLastName,
-            "usrAddress" =>$UsrAddress,
-            "usrPassword" =>$UsrPassword,
-            "usrPointsBalance" =>$UsrPointsBalance,
+            "usrLogin" =>$usrLogin,
+            "usrEmail" =>$usrEmail,
+            "usrFirstName" =>$usrFirstName,
+            "usrLastName" =>$usrLastName,
+            "usrAddress" =>$usrAddress,
+            "usrPassword" =>$usrPassword,
+            "usrPointsBalance" =>$usrPointsBalance,
             "usrRegisterDate" =>date("Y-m-d H:i:s"),
             "usrLastConnectionDate" =>date("Y-m-d H:i:s"),
-            "usrStsId" =>$StatusId,
+            "usrStsId" =>$usrStsId,
         );
 
         $this->db->insert($this->table, $data);
     }
 
-//    function put($id, $title)
-//    {
-//        $data = array(
-//            "title" => $title
-//        );
-//
-//        $this->db->where("id", $id)
-//            ->update($this->table, $data);
-//    }
+    function patch($usrId,$usrLogin,$usrEmail,$usrFirstName,$usrLastName,$usrAddress,$usrPassword,$usrPointsBalance,$usrStsId)
+    {
+        $con=mysqli_connect("localhost","root","root","geoquizz");
+        $this->db->query("UPDATE gquser SET usrLogin='".mysqli_real_escape_string($con,$usrLogin)."', usrEmail='".mysqli_real_escape_string($con,$usrEmail)."', 
+                          usrFirstName='".mysqli_real_escape_string($con,$usrFirstName)."', usrLastName='".mysqli_real_escape_string($con,$usrLastName)."', 
+                          usrAddress='".mysqli_real_escape_string($con,$usrAddress)."', usrPassword='".mysqli_real_escape_string($con,$usrPassword)."',
+                          usrPointsBalance=".intval($usrPointsBalance).", usrStsId=".intval($usrStsId)." 
+                          WHERE usrId=".intval($usrId));
+    }
 
     function delete($id)
     {
