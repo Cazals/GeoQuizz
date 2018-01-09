@@ -66,8 +66,9 @@ class Model_walk extends CI_Model
                                           AND wkDateWalk>DATE_SUB(NOW(), INTERVAL 30 MINUTE)
                                           AND wkDateWalk<NOW()");
                 if(empty($volastvisit->result())){ // Add walking points and walk datas
-                    $this->db->query("UPDATE gquser SET usrPointsBalance=usrPointsBalance+
-                                                     ".intval($rowvisited['plcWkPrice']));
+                    $this->db->query("UPDATE gquser SET usrPointsBalance=usrPointsBalance+".intval($rowvisited['plcWkPrice']).
+                                     " WHERE usrId=".intval($rowvisited['plcUsrIdOwner']));
+
                     $this->db->query("INSERT INTO gqwalk (wkDateWalk,wkUsrIdOwner,wkUsrIdWalker,wkPlaceId) 
                                       VALUES (NOW(),".intval($rowvisited['plcUsrIdOwner']).",".intval($idplayer)."
                                       ,".intval($rowvisited['plcId']).")");
