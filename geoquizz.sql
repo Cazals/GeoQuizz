@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 19 Décembre 2017 à 12:18
+-- Généré le :  Mar 09 Janvier 2018 à 11:06
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `dbgeoquizz`
+-- Base de données :  `geoquizz`
 --
 
 -- --------------------------------------------------------
@@ -61,7 +61,7 @@ CREATE TABLE `gqplace` (
 --
 
 INSERT INTO `gqplace` (`plcId`, `plcName`, `plcAddress`, `plcLat`, `plcLon`, `plcPrice`, `plcWkPrice`, `plcUsrIdOwner`) VALUES
-(1, 'Capitole', '13 Place du Capitole, 31000 Toulouse, France', 43.604389, 1.443372, '15.000', 3, 1),
+(1, 'Capitole', '13 Place du Capitole, 31000 Toulouse, France', 43.604389, 1.443372, '15.000', 3, 2),
 (2, 'Gare Matabiau', '64 Boulevard Pierre Semard, 31079 Toulouse, France', 43.611237, 1.453747, '10.000', 2, 1),
 (3, 'Appartement Thomas', '230 Avenue de Castres, 31500 Toulouse, France', 43.594231, 1.489365, '5.000', 1, 1),
 (4, 'CESI', '6 Rue Magellan, 31670 Labège, France', 43.548317, 1.502877, '10.000', 2, NULL);
@@ -144,8 +144,8 @@ CREATE TABLE `gquser` (
   `usrAddress` varchar(255) DEFAULT NULL,
   `usrPassword` varchar(20) DEFAULT NULL,
   `usrPointsBalance` int(11) DEFAULT NULL,
-  `usrRegisterDate` date DEFAULT NULL,
-  `usrLastConnexionDate` date DEFAULT NULL,
+  `usrRegisterDate` datetime DEFAULT NULL,
+  `usrLastConnectionDate` datetime DEFAULT NULL,
   `usrStsId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -153,9 +153,10 @@ CREATE TABLE `gquser` (
 -- Contenu de la table `gquser`
 --
 
-INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastName`, `usrAddress`, `usrPassword`, `usrPointsBalance`, `usrRegisterDate`, `usrLastConnexionDate`, `usrStsId`) VALUES
-(1, 'Thomas', 'tom@tom', 'Thomas', 'Cazals', '230 avenue de Castres 31500 Toulouse', 'azerty', 500, '2017-10-29', '2017-10-29', 1),
-(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 30, '2017-12-13', '2017-12-13', 2);
+INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastName`, `usrAddress`, `usrPassword`, `usrPointsBalance`, `usrRegisterDate`, `usrLastConnectionDate`, `usrStsId`) VALUES
+(1, 'Thomas', 'tom@tom', 'Thomas', 'Cazals', '230 avenue de Castres 31500 Toulouse', 'azerty', 506, '2017-10-29 00:00:00', '2017-10-29 00:00:00', 1),
+(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 36, '2017-12-13 00:00:00', '2017-12-13 00:00:00', 2),
+(3, 'Boulbi', 'thofsm', 'tgtgtg', 'gtgtg', '25 rue des marguerites', 'tom', 33, '2018-01-09 11:57:29', '2018-01-09 11:57:29', 1);
 
 -- --------------------------------------------------------
 
@@ -175,7 +176,10 @@ CREATE TABLE `gqwalk` (
 --
 
 INSERT INTO `gqwalk` (`wkDateWalk`, `wkUsrIdOwner`, `wkUsrIdWalker`, `wkPlaceId`) VALUES
-('2017-12-18 00:00:00', 1, 2, 3);
+('2017-12-18 00:00:00', 1, 2, 3),
+('2018-01-09 09:33:00', 2, 1, 1),
+('2018-01-09 10:39:19', 2, 1, 1),
+('2018-01-09 12:04:13', 2, 1, 1);
 
 --
 -- Index pour les tables exportées
@@ -264,7 +268,7 @@ ALTER TABLE `gqtranstype`
 -- AUTO_INCREMENT pour la table `gquser`
 --
 ALTER TABLE `gquser`
-  MODIFY `usrId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `usrId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Contraintes pour les tables exportées
 --
