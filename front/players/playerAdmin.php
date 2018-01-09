@@ -39,7 +39,7 @@
         </div>
         <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="text" id="c_address"/>
-            <label class="mdl-textfield__label" for="c_address">Adress</label>
+            <label class="mdl-textfield__label" for="c_address">Address</label>
         </div>
         <div class="mdl-textfield mdl-js-textfield">
             <input class="mdl-textfield__input" type="password" id="c_password"/>
