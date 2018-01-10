@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4ade9601-c0ca-4cad-b82d-1074f8b5e5ff" name="Default" comment="Front:Form made &#10;Back added modification on feature/back">
+    <list default="true" id="4ade9601-c0ca-4cad-b82d-1074f8b5e5ff" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/ressources/home-bought.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/ressources/home-free.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/ressources/home-owned.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/ressources/position.png" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/front/ressources/home-shape.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/editLogin.js" afterPath="$PROJECT_DIR$/front/editLogin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/importScript.html" afterPath="$PROJECT_DIR$/front/importScript.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/editPlayer.js" afterPath="$PROJECT_DIR$/front/players/editPlayer.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/playerAdmin.php" afterPath="$PROJECT_DIR$/front/players/playerAdmin.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/login.php" afterPath="$PROJECT_DIR$/front/login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/shared/navbar.php" afterPath="$PROJECT_DIR$/front/shared/navbar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/shared/navbarScript.js" afterPath="$PROJECT_DIR$/front/shared/navbarScript.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -31,95 +38,82 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-924">
-              <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Welcome.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Welcome.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Product.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/api/v1/Product.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="playerAdmin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-566">
-              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="34" />
+            <state relative-caret-position="651">
+              <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="60" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="editPlayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="20" column="87" lean-forward="false" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="myProfile.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/players/myProfile.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-126">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbarScript.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/shared/navbarScript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="navbar.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/shared/navbar.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="42">
+              <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editMap.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/play/editMap.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1491">
+              <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editLogin.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/front/editLogin.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="672">
+              <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="editPlayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+            <state relative-caret-position="-210">
+              <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="37" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="54" column="37" lean-forward="false" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/api/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Model_walk.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/Model_walk.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-              <folding>
-                <marker date="1515423141274" expanded="true" signature="344:478" ph="SELECT 1 as gqplace" />
-                <marker date="1515423141274" expanded="true" signature="3529:3692" ph="SELECT * FRO... gqwalk" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -127,8 +121,18 @@
       <file leaf-file-name="importScript.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/importScript.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="63">
+              <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/front/play/map.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -136,12 +140,24 @@
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>mySQl</find>
       <find>\&lt;html\&gt;\n\&lt;head\&gt;\n    \&lt;\?php include \'\.\.\/importScript\.html\' \?\&gt;\n\n\&lt;\/head\&gt;\n\&lt;body\&gt;\n\n\n\&lt;div class\=\&quot;layoutHolder\&quot;\&gt;\n    \&lt;\?php include_once \'\.\.\/shared\/navbar\.php\' \?\&gt;\n    \&lt;\!\-\- Start your content here \!\! you dumb \-\-\&gt;\n    \&lt;main class\=\&quot;mdl\-layout__content\&quot;\&gt;\n        \&lt;div class\=\&quot;mdl\-grid\&quot; id\=\&quot;ma_grille_de_joueurs\&quot;\&gt;\n\n        \&lt;div class\=\&quot;demo\-card\-square mdl\-card mdl\-shadow\-\-2dp mdl\-cell mdl\-cell\-\-4\-col\&quot; id\=\&quot;maDiv\&quot; style\=\&quot;display\: none\&quot;\&gt;\n            \&lt;div class\=\&quot;mdl\-card__title mdl\-card\-\-expand\&quot;\&gt;\n                \&lt;h2 class\=\&quot;mdl\-card__title\-text\&quot;\&gt;Pseudo\&lt;\/h2\&gt;\n            \&lt;\/div\&gt;\n            \&lt;div class\=\&quot;mdl\-card__supporting\-text\&quot;\&gt;\n                Mon test Lorem ipsum dolor sit amet\, consectetur adipiscing elit\.\n                Aenan convallis\.\n            \&lt;\/div\&gt;\n            \&lt;div class\=\&quot;mdl\-card__actions mdl\-card\-\-border\&quot;\&gt;\n                \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect\&quot; id\=\&quot;monBoutton2\&quot;\&gt;\n                    Modify\n                \&lt;\/a\&gt;\n                \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect bouton_supprimer\&quot; id_joueur\=\&quot;4\&quot;\&gt;\n                    Delete\n                \&lt;\/a\&gt;\n            \&lt;\/div\&gt;\n        \&lt;\/div\&gt;\n        \&lt;\/div\&gt;\n        \&lt;button id\=\&quot;b_add\&quot;\n                class\=\&quot;mdl\-button mdl\-js\-button mdl\-button\-\-fab mdl\-js\-ripple\-effect mdl\-button\-\-colored\&quot;\&gt;\n            \&lt;i class\=\&quot;material\-icons\&quot;\&gt;add\&lt;\/i\&gt;\n        \&lt;\/button\&gt;\n    \&lt;\/main\&gt;\n\&lt;\/div\&gt;\n\n\&lt;div id\=\&quot;mon_formulaire_ajout_joueur\&quot; class \=\&quot;mdl\-card mdl\-shadow\-\-2dp mdl\-cell mdl\-cell\-\-8\-col\&quot; style\=\&quot;display\:none\;\&quot;\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;input type\=\&quot;text\&quot; id\=\&quot;c_pseudo\&quot; placeholder\=\&quot;Pseudo\&quot;\/\&gt;\n            \&lt;a class\=\&quot;mdl\-button mdl\-button\-\-colored mdl\-js\-button mdl\-js\-ripple\-effect\&quot; id\=\&quot;bouton_enregistrer_joueur\&quot;\&gt;\n                Ajouter le joueur\n            \&lt;\/a\&gt;\n    \&lt;\/div\&gt;\n\n\&lt;script type\=\&quot;text\/javascript\&quot; src\=\&quot;editPlayer\.js\&quot;\&gt;\&lt;\/script\&gt;\n\n\&lt;\/body\&gt;\n\&lt;\/html\&gt;\n</find>
       <find>bella</find>
       <find>modifer</find>
+      <find>pos</find>
+      <find>lieux</find>
+      <find>player</find>
+      <find>a</find>
+      <find>addAttribute</find>
     </findStrings>
     <replaceStrings>
       <replace>lat</replace>
@@ -149,6 +165,7 @@
       <replace>$lon</replace>
       <replace>plcLat</replace>
       <replace>plcLon</replace>
+      <replace>lieux</replace>
     </replaceStrings>
     <dirStrings>
       <dir>C:\wamp64\www\GeoQuizz\application</dir>
@@ -184,14 +201,21 @@
         <option value="$PROJECT_DIR$/application/models/Model_transaction.php" />
         <option value="$PROJECT_DIR$/application/models/Model_place.php" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/application/controllers/api/User.php" />
         <option value="$PROJECT_DIR$/front/decoration.css" />
         <option value="$PROJECT_DIR$/application/controllers/api/Walk.php" />
         <option value="$PROJECT_DIR$/application/models/Model_login.php" />
         <option value="$PROJECT_DIR$/application/models/Model_walk.php" />
-        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
         <option value="$PROJECT_DIR$/front/importScript.html" />
+        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
+        <option value="$PROJECT_DIR$/application/controllers/api/User.php" />
+        <option value="$PROJECT_DIR$/front/play/map.php" />
         <option value="$PROJECT_DIR$/front/players/editPlayer.js" />
+        <option value="$PROJECT_DIR$/front/players/myProfile.js" />
+        <option value="$PROJECT_DIR$/front/play/editMap.js" />
+        <option value="$PROJECT_DIR$/front/shared/navbar.php" />
+        <option value="$PROJECT_DIR$/front/shared/navbarScript.js" />
+        <option value="$PROJECT_DIR$/front/login.php" />
+        <option value="$PROJECT_DIR$/front/editLogin.js" />
       </list>
     </option>
   </component>
@@ -203,8 +227,8 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="603" />
-    <option name="width" value="1325" />
+    <option name="x" value="952" />
+    <option name="width" value="976" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectView">
@@ -269,6 +293,12 @@
               <item name="GeoQuizz" type="b2602c69:ProjectViewProjectNode" />
               <item name="GeoQuizz" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="play" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="GeoQuizz" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GeoQuizz" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="front" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="players" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -299,6 +329,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\GeoQuizz\front\play" />
       <recent name="C:\UwAmp\www\GeoQuizz\application\models" />
       <recent name="C:\UwAmp\www\GeoQuizz\application\controllers\api" />
     </key>
@@ -341,7 +372,7 @@
       <workItem from="1513864225315" duration="7987000" />
       <workItem from="1513931831286" duration="7745000" />
       <workItem from="1515263158330" duration="11338000" />
-      <workItem from="1515422950951" duration="23921000" />
+      <workItem from="1515422950951" duration="73791000" />
     </task>
     <task id="LOCAL-00001" summary="Front: Added query to get users">
       <created>1515264581500</created>
@@ -361,7 +392,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57534000" />
+    <option name="totallyTimeSpent" value="107404000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -374,16 +405,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15145005" sideWeight="0.8304348" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3308351" sideWeight="0.5029985" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15116279" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32915717" sideWeight="0.4970015" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32915717" sideWeight="0.4970015" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.041044775" sideWeight="0.16956522" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3997722" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -399,13 +431,11 @@
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32801822" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -451,7 +481,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Front: Added query to get users" />
     <MESSAGE value="Front:Form made &#10;Back added modification on feature/back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Front:Form made &#10;Back added modification on feature/back" />
+    <MESSAGE value="Commit cookie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit cookie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -460,22 +491,16 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front/map.php" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
-    <entry file="file://$PROJECT_DIR$/front/map.php" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
-    <entry file="file://$PROJECT_DIR$/front/map.php" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
+    <entry file="file://$PROJECT_DIR$/front/editLogin.js" />
     <entry file="file://$PROJECT_DIR$/front/decoration.css" />
     <entry file="file://$PROJECT_DIR$/front/importScript.html" />
     <entry file="file://$PROJECT_DIR$/front/map.php" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
+    <entry file="file://$PROJECT_DIR$/front/editLogin.js" />
     <entry file="file://$PROJECT_DIR$/front/decoration.css" />
     <entry file="file://$PROJECT_DIR$/front/importScript.html" />
     <entry file="file://$PROJECT_DIR$/front/map.php" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
+    <entry file="file://$PROJECT_DIR$/front/editLogin.js" />
     <entry file="file://$PROJECT_DIR$/Projet Web/UseCase GeoQuizz.mdj" />
-    <entry file="file://$PROJECT_DIR$/front/mapScript.js" />
     <entry file="file://$PROJECT_DIR$/front/players/profile/myProfile.php" />
     <entry file="file://$PROJECT_DIR$/front/stats/rank/ranking.php" />
     <entry file="file://$PROJECT_DIR$/front/map.php" />
@@ -527,14 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Model_place.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="776">
-          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/api/Transaction.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -571,42 +588,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/decoration.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/shared/navbar.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1008">
-          <caret line="48" column="66" lean-forward="false" selection-start-line="48" selection-start-column="59" selection-end-line="48" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Model_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/players/myProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -624,17 +609,6 @@
         <state relative-caret-position="489">
           <caret line="85" column="1" lean-forward="false" selection-start-line="85" selection-start-column="1" selection-end-line="85" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/Model_walk.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-          <folding>
-            <marker date="1515423141274" expanded="true" signature="344:478" ph="SELECT 1 as gqplace" />
-            <marker date="1515423141274" expanded="true" signature="3529:3692" ph="SELECT * FRO... gqwalk" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,14 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-924">
-          <caret line="7" column="32" lean-forward="true" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -686,34 +652,164 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/importScript.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/api/Login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="62" column="18" lean-forward="false" selection-start-line="62" selection-start-column="18" selection-end-line="62" selection-end-column="18" />
+          <folding>
+            <marker date="1515534703269" expanded="true" signature="126:2980" ph="..." />
+            <marker date="1515534703269" expanded="true" signature="404:1098" ph="{...}" />
+            <marker date="1515534703269" expanded="true" signature="2870:2971" ph="..." />
+            <marker date="1515534703269" expanded="true" signature="2870:2978" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Model_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="12" />
+          <folding>
+            <marker date="1515588863951" expanded="true" signature="106:2283" ph="..." />
+            <marker date="1515588863951" expanded="true" signature="2160:2165" ph="//..." />
+            <marker date="1515588863951" expanded="true" signature="2191:2281" ph="{...}" />
+            <marker date="1515588863951" expanded="true" signature="2261:2273" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/api/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="19" column="40" lean-forward="false" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+          <folding>
+            <marker date="1515534703285" expanded="true" signature="374:548" ph="{...}" />
+            <marker date="1515534703285" expanded="true" signature="464:548" ph="..." />
+            <marker date="1515534703285" expanded="true" signature="512:548" ph="..." />
+            <marker date="1515534703285" expanded="true" signature="547:548" ph="..." />
+            <marker date="1515534703285" expanded="true" signature="3319:3654" ph="{...}" />
+            <marker date="1515534703285" expanded="true" signature="3418:3527" ph="..." />
+            <marker date="1515534703285" expanded="true" signature="3535:3647" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Model_place.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+          <folding>
+            <marker date="1515588863882" expanded="true" signature="107:1746" ph="..." />
+            <marker date="1515588863882" expanded="true" signature="135:188" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Model_walk.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="103" column="5" lean-forward="true" selection-start-line="103" selection-start-column="5" selection-end-line="103" selection-end-column="5" />
+          <folding>
+            <marker date="1515588863951" expanded="true" signature="341:478" ph="SELECT 1 as gqplace" />
+            <marker date="1515588863951" expanded="true" signature="4513:4843" ph="SELECT * FRO... gqwalk" />
+            <marker date="1515588863951" expanded="true" signature="4973:5113" ph="UPDATE gquse... " />
+            <marker date="1515588863951" expanded="true" signature="5193:5447" ph="INSERT INTO gqwalk... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/geoquizz.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="313" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/play/map.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="52" lean-forward="false" selection-start-line="12" selection-start-column="34" selection-end-line="12" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/myProfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/play/editMap.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1491">
+          <caret line="71" column="40" lean-forward="false" selection-start-line="71" selection-start-column="40" selection-end-line="71" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-566">
-          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="34" />
+        <state relative-caret-position="651">
+          <caret line="58" column="0" lean-forward="false" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/myProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-126">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="65" column="29" lean-forward="true" selection-start-line="65" selection-start-column="29" selection-end-line="65" selection-end-column="29" />
+        <state relative-caret-position="-210">
+          <caret line="44" column="4" lean-forward="false" selection-start-line="44" selection-start-column="4" selection-end-line="44" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/shared/navbarScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/shared/navbar.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="42">
+          <caret line="2" column="25" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/importScript.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="48" lean-forward="false" selection-start-line="3" selection-start-column="39" selection-end-line="3" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="20" column="87" lean-forward="false" selection-start-line="20" selection-start-column="87" selection-end-line="20" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/editLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="35" column="29" lean-forward="true" selection-start-line="35" selection-start-column="29" selection-end-line="35" selection-end-column="29" />
           <folding />
         </state>
       </provider>
