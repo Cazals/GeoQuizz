@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <?php include '../importScript.html' ?>
-
     <title>GeoQuizz</title>
-
+    <script type="text/javascript" src="../editLogin.js"></script>
 </head>
 <body>
 <div class="layoutHolder">
@@ -18,5 +17,6 @@
         </div>
     </main>
 </div>
+
 </body>
 </html>

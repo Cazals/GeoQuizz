@@ -7,17 +7,15 @@
  * Released under the MIT license
  */
 
-
-
-
-$('.loginButton').on('click', function () {
-    var login = $('#c_pseudo').val();
+$('#bouton_login').on('click', function () {
+    var login = $('#c_login').val();
     var password = $('#c_password').val();
     var json = {"usrLogin":login, "usrPassword": password};
+    var idPlayer;
     $.ajax(
         {
             // Your server script to process the upload
-            url: '/GeoQuizz/api/login/register',
+            url: '/GeoQuizz/api/login',
             type: 'POST',
             data: "["+JSON.stringify(json)+"]",
             contentType: 'application/json',
@@ -29,18 +27,21 @@ $('.loginButton').on('click', function () {
 
                 myXhr.addEventListener('readystatechange', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
-                        var resultat = myXhr.responseText;
-                        window.idPlayer = resultat.usrId;
+                        var resultat = JSON.parse(myXhr.responseText);
+                        idPlayer =  resultat.usrId;
+                        createCoockies(idPlayer)
                     }
                 });
                 return myXhr;
             }
         });
 
-    Cookies.set('idPlayer', window.idPlayer, { expires: 1 });
 
 });
 
+function createCoockies(idPlayer){
+    Cookies.set('usrId', idPlayer, { expires: 1 });
+}
 
 (function (factory) {
     var registeredInModuleLoader = false;

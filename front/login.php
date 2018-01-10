@@ -16,7 +16,7 @@
                     <script type="text/javascript">
                         var formData = JSON.stringify($("#login").serializeArray())
                     </script>
-                    <form id="login" action="localhost:8080\GeoQuizz\api\login\" method="POST">
+                    <form id="login">
                         <div class="mdl-textfield mdl-js-textfield">
                             <input class="mdl-textfield__input" type="text" id="c_login"/>
                             <label class="mdl-textfield__label" for="username">Username</label>
@@ -28,8 +28,8 @@
                     </form>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
-                    <a href="play/map.php">
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginButton">Log in
+                    <a href="play/map.php" id="bouton_login">
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in
                         </button>
                     </a>
                 </div>
@@ -37,5 +37,6 @@
         </div>
     </main>
 </div>
+<script src="editLogin.js"></script>
 </body>
 </html>

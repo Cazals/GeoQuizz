@@ -1,6 +1,5 @@
 <!-- must be contain in a div ... it should not be directly inside the body -->
 <!-- This is the layout where you should put contents in main div -->
-<script src="navbarScript.js"></script>
 <div class="mdl-layout mdl-js-layout">
     <!-- NAVBAR on Laptop -->
     <header class="mdl-layout__header">

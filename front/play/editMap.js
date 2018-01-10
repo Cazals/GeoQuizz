@@ -69,7 +69,7 @@ function initMap() {
 }
 
 function charger_lieux_depuis_serveur(pos) {
-    var idPlayer = Cookies.get('idPlayer');
+    var idPlayer = Cookies.get('usrId');
     var json = {"usrId": idPlayer, "plcLat": pos.lat, "plcLon": pos.lng};
     $.ajax(
         {
@@ -99,7 +99,7 @@ function charger_lieux_depuis_serveur(pos) {
         });
 }
 
-function creer_vignette_lieux_data(plcId, plcName, plcAddress, plcLat, plcLon, plcPrice, plcUsrIdOwner, code) {
+function creer_vignette_lieux_data(plcId, plcName, plcAddress, plcLat, plcLon, plcPrice, plcUsrIdOwner, code, plcImgUrl) {
     var myPlace = {
         plcId: plcId,
         plcName: plcName,
@@ -108,7 +108,8 @@ function creer_vignette_lieux_data(plcId, plcName, plcAddress, plcLat, plcLon, p
         plcLon: plcLon,
         plcPrice: plcPrice,
         plcUsrIdOwner: plcUsrIdOwner,
-        plcCode: code
+        plcCode: code,
+        plcImgUrl: plcImgUrl
     };
 
     creer_vignette_lieux(myPlace);
@@ -124,6 +125,7 @@ function creer_vignette_lieux(lieux) {
     var plcPrice;
     var plcUsrIdOwner;
     var plcCode;
+    var plcImgUrl;
     if (lieux != null) {
         plcId = lieux.plcId;
         plcName = lieux.plcName;
@@ -133,13 +135,15 @@ function creer_vignette_lieux(lieux) {
         plcPrice = lieux.plcPrice;
         plcUsrIdOwner = lieux.plcUsrIdOwner;
         plcCode = lieux.code;
+        plcImgUrl = lieux.plcImgUrl;
     }
     var urlIcon;
 
     var cardWideInfo = jQuery('<div/>', {}).appendTo($('#ma_grille_de_lieux'));
     cardWideInfo.addClass('demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone');
     var cardTitle = jQuery('<div/>', {}).appendTo($(cardWideInfo));
-    cardTitle.addClass('mdl-card__title');
+    cardTitle.addClass('mdl-card__title style');
+    var styleCard = jQuery('<style/>', {text: ".demo-card-wide > .style {background: url('" + plcImgUrl + "') center / cover}"});
     var cardTitleText = jQuery('<h2/>', {text: plcName}).appendTo($(cardTitle));
     cardTitleText.addClass('mdl-card__title-text');
     var cardSupportingText = jQuery('<div/>', {text: plcAddress}).appendTo($(cardWideInfo));
@@ -150,7 +154,7 @@ function creer_vignette_lieux(lieux) {
     switch (parseInt(plcCode)) {
 
         case 1:
-            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + (plcPrice) + "pts" }).appendTo($(cardAction));
+            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + (parseInt(plcPrice) * 3/4) + " pts" }).appendTo($(cardAction));
             buttonTransaction1.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
             //buttonTransaction.currentTarget(vendre)
             urlIcon = "../ressources/home-bought.png";
@@ -169,9 +173,14 @@ function creer_vignette_lieux(lieux) {
             break;
 
         case 3:
-            var buttonTransaction3 = jQuery('<a/>', {text: "Buy for : " + plcPrice + "pts"}).appendTo($(cardAction));
+            var buttonTransaction3 = jQuery('<a/>', {text: "Buy for : " + parseInt(plcPrice) + " pts"}).appendTo($(cardAction));
             buttonTransaction3.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
             urlIcon = "../ressources/home-free.png";
+            buttonTransaction3.attr("idLieux", plcId);
+            buttonTransaction3.attr("prixLieux", plcPrice);
+            buttonTransaction3.on('click', function (e) {
+                acheter_lieux(e.currentTarget);
+            });
             break;
 
         case 4:
@@ -208,7 +217,71 @@ function creer_vignette_lieux(lieux) {
     var infowindow = new google.maps.InfoWindow({
         content: cardWideInfo[0]
     });
+function acheter_lieux(bouton) {
+    var idLieux = bouton.getAttribute("idLieux");
+    var prixLieux = bouton.getAttribute("prixLieux");
+    var idPlayer = Cookies.get('usrId');
+    $.ajax(
+        {
+            // Your server script to process the upload
+            url: '/GeoQuizz/api/user/' + idPlayer,
+            type: 'GET',
 
+            // Tell jQuery not to process data or worry about content-type
+            // You must include these options!
+            cache: false,
+            contentType: false,
+            processData: false,
 
+            // Custom XMLHttpRequest
+            xhr: function () {
+                var myXhr = $.ajaxSettings.xhr();
+
+                myXhr.addEventListener('readystatechange', function () {
+                    if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                        console.log(myXhr.responseText);
+                        var resultat = JSON.parse(myXhr.responseText);
+                        buyPlace(resultat);
+                    }
+                    return myXhr;
+                })
+            }
+        });
+
+    function buyPlace(player) {
+        var usrId = player.usrId;
+
+        var json ={"transType":1,"transPoints":parseInt(prixLieux),"transUsrIdBuyer":usrId,"transUsrIdSeller":null ,"transPlaceId":idLieux };
+        $.ajax(
+            {
+                // Your server script to process the upload
+                //TODO MODIFY
+                url: '/GeoQuizz/api/transaction',
+                type: "POST",
+                data: "[" + JSON.stringify(json) + "]",
+                contentType: 'application/json',
+                dataType: 'json',
+
+                // Custom XMLHttpRequest
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+
+                    myXhr.addEventListener('readystatechange', function () {
+                        if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                            var resultat = JSON.parse(myXhr.responseText);
+                            var message = resultat.msg;
+                            snackbar(message);
+                        }
+                    });
+                    return myXhr;
+                }
+            });
+    }
+
+    function snackbar(message){
+        //TODO add snackbar with JQUERY
+        //code pour afficher la snackbar
+    }
+}
 
 }

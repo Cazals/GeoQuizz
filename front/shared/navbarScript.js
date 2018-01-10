@@ -1,3 +1,3 @@
-$('.buttonLogout').on('click', function () {
-    Cookies.remove('idPlayer');
+$('#buttonLogout').on('click', function () {
+    Cookies.remove('usrId');
 });
