@@ -1,12 +1,13 @@
 <!-- must be contain in a div ... it should not be directly inside the body -->
 <!-- This is the layout where you should put contents in main div -->
+<script src="navbarScript.js"></script>
 <div class="mdl-layout mdl-js-layout">
     <!-- NAVBAR on Laptop -->
     <header class="mdl-layout__header">
         <div class="mdl-layout-icon"></div>
         <div class="mdl-layout__header-row">
                 <span class="mdl-layout__title">GeoQuizz
-                    <a href="../login.php">
+                    <a href="../login.php" id="buttonLogout">
                     <button class="mdl-button mdl-js-button mdl-button--icon">
                         <i class="material-icons logout">power_settings_new</i>
                     </button>

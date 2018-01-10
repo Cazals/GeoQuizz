@@ -18,18 +18,18 @@
                     </script>
                     <form id="login" action="localhost:8080\GeoQuizz\api\login\" method="POST">
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="text" id="username"/>
+                            <input class="mdl-textfield__input" type="text" id="c_login"/>
                             <label class="mdl-textfield__label" for="username">Username</label>
                         </div>
                         <div class="mdl-textfield mdl-js-textfield">
-                            <input class="mdl-textfield__input" type="password" id="userpass"/>
+                            <input class="mdl-textfield__input" type="password" id="c_password"/>
                             <label class="mdl-textfield__label" for="userpass">Password</label>
                         </div>
                     </form>
                 </div>
                 <div class="mdl-card__actions mdl-card--border">
                     <a href="play/map.php">
-                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Log in
+                        <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="loginButton">Log in
                         </button>
                     </a>
                 </div>
