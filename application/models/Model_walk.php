@@ -10,7 +10,7 @@ class Model_walk extends CI_Model
     {
 
         // 1    Selecting player's owned places
-        $owned=$this->db->query("SELECT 1 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcUsrIdOwner,plcPrice
+        $owned=$this->db->query("SELECT 1 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcUsrIdOwner,plcPrice,plcImgUrl 
                                  FROM gqplace WHERE plcUsrIdOwner=".intval($usrId));
         if(!empty($owned->result())){
             //RETURN JSON_ENCODE($owned->result());
@@ -29,7 +29,7 @@ class Model_walk extends CI_Model
             }
         }
         //  2   Selecting nearby places, not owned by the player, where the player is not in
-        $nearby=$this->db->query("SELECT 2 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcPrice, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
+        $nearby=$this->db->query("SELECT 2 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcPrice,plcImgUrl, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
                          radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner  
                          FROM gqplace HAVING distance<=30 AND distance>0.05 AND ( plcUsrIdOwner<>".intval($usrId)." OR plcUsrIdOwner IS NULL) ORDER by distance ASC");
         if(!empty($nearby->result())){
@@ -48,7 +48,7 @@ class Model_walk extends CI_Model
             }
         }
         //  3   Selecting place not owned by player, player at 50m from the place, place free no owner
-        $visitedfree=$this->db->query("SELECT 3 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcPrice, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
+        $visitedfree=$this->db->query("SELECT 3 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcPrice,plcImgUrl,(6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
                          radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner  
                          FROM gqplace HAVING distance<=0.05 AND plcUsrIdOwner IS NULL ORDER by distance ASC");
         if(!empty($visitedfree->result())){
@@ -66,7 +66,7 @@ class Model_walk extends CI_Model
         }
         //  4  Selecting place not owned by player, player at 50m from the place, place owned by another player
         $visitedowned=$this->db->query("SELECT 4 as code,plcId,plcName,plcAddress,plcLat,plcLon,plcPrice ,(6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
-                         radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner,plcWkPrice
+                         radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance,plcUsrIdOwner,plcWkPrice,plcImgUrl
                          FROM gqplace HAVING distance<=0.05 AND plcUsrIdOwner<>".intval($usrId)." ORDER by distance ASC");
         if(!empty($visitedowned->result())){
             foreach ($visitedowned->result() as $row) {
