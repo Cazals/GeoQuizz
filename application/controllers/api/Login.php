@@ -96,7 +96,7 @@ class Login extends CI_Controller {
             $this->load->model('Model_user');
 
             $this->Model_user->post($decoded[0]['usrLogin'],$decoded[0]['usrEmail'],$decoded[0]['usrFirstName'],$decoded[0]['usrLastName'],
-                                    $decoded[0]['usrAddress'],$decoded[0]['usrPassword'],30,2);
+                                    $decoded[0]['usrAddress'],$decoded[0]['usrPassword'],30,2,$decoded[0]['usrImgUrl']);
             echo json_encode(array('code'=> 0,'msg'=>'Utilisateur créé avec succés'));
 
         }

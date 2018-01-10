@@ -19,7 +19,7 @@ class Place extends CI_Controller {
             foreach ($data->result() as $row) {
                 $result[] = array("plcId" => intval($row->plcId), "plcName" => $row->plcName, "plcAddress" => $row->plcAddress,
                     "plcLat" =>$row->plcLat,"plcLon" =>$row->plcLon,"plcPrice" =>$row->plcPrice,
-                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner);
+                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner,"plcImgUrl"=>$row->plcImgUrl);
             }
             echo json_encode($result);
         } else {
@@ -37,7 +37,7 @@ class Place extends CI_Controller {
             foreach ($data->result() as $row) {
                 $result[] = array("plcId" => intval($row->plcId), "plcName" => $row->plcName, "plcAddress" => $row->plcAddress,
                     "plcLat" =>$row->plcLat,"plcLon" =>$row->plcLon,"plcPrice" =>$row->plcPrice,
-                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner);
+                    "plcWkPrice" =>$row->plcWkPrice,"plcUsrIdOwner" =>$row->plcUsrIdOwner,"plcImgUrl"=>$row->plcImgUrl);
             }
             echo json_encode($result);
         } else {
@@ -56,8 +56,10 @@ class Place extends CI_Controller {
         $plcLon = $_REQUEST['plcLon'];
         $plcPrice = $_REQUEST['plcPrice'];
         $plcWkPrice = $_REQUEST['plcWkPrice'];
+        $plcImgUrl = $_REQUEST['plcImgUrl'];
 
-        $this->Model_place->post($plcName,$plcAddress,$plcLat,$plcLon,$plcPrice,$plcWkPrice);
+        $created=$this->Model_place->post($plcName,$plcAddress,$plcLat,$plcLon,$plcPrice,$plcWkPrice,$plcImgUrl);
+        echo json_encode($created);
     }
 
     // Update a product
@@ -90,7 +92,9 @@ class Place extends CI_Controller {
                     $decoded[0]['plcPrice'],
                     $decoded[0]['plcWkPrice'],
                     $decoded[0]['plcUsrIdOwner'],
+                    $decoded[0]['plcImgUrl'],
                     TRUE);
+        echo json_encode($updated);
     }
 
     // Delete a product
@@ -98,8 +102,8 @@ class Place extends CI_Controller {
     {
         // If product exists
         if ($this->Model_place->get_one($id)->num_rows() == 1) {
-            $this->Model_place->delete($id);
-            echo json_encode("200: Place #$id deleted");
+            $deleted=$this->Model_place->delete($id);
+            echo json_encode($deleted);
         } else {
             header("HTTP/1.0 404 Not Found");
             echo json_encode("404: Product $id not found");

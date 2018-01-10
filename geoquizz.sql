@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 10 Janvier 2018 à 17:16
+-- Généré le :  Mer 10 Janvier 2018 à 21:12
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -53,19 +53,19 @@ CREATE TABLE `gqplace` (
   `plcLon` float(10,6) DEFAULT NULL,
   `plcPrice` decimal(15,3) DEFAULT NULL,
   `plcWkPrice` int(11) DEFAULT NULL,
-  `plcUsrIdOwner` int(11) DEFAULT NULL
+  `plcUsrIdOwner` int(11) DEFAULT NULL,
+  `plcImgUrl` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `gqplace`
 --
 
-INSERT INTO `gqplace` (`plcId`, `plcName`, `plcAddress`, `plcLat`, `plcLon`, `plcPrice`, `plcWkPrice`, `plcUsrIdOwner`) VALUES
-(1, 'Capitole', 'place du capitole', 43.604389, 1.443372, '100.000', 10, 2),
-(2, 'Gare Matabiau', '64 Boulevard Pierre Semard, 31079 Toulouse, France', 43.611237, 1.453747, '10.000', 2, 1),
-(3, 'Appartement Thomas', '230 Avenue de Castres, 31500 Toulouse, France', 43.594231, 1.489365, '5.000', 1, 1),
-(4, 'CESI', '6 Rue Magellan, 31670 Labège, France', 43.548317, 1.502877, '10.000', 2, NULL),
-(12, 'efoefe', 'efef', 142.251999, 21.215000, '21.000', 3, NULL);
+INSERT INTO `gqplace` (`plcId`, `plcName`, `plcAddress`, `plcLat`, `plcLon`, `plcPrice`, `plcWkPrice`, `plcUsrIdOwner`, `plcImgUrl`) VALUES
+(1, 'Capitole', 'place du capitole', 43.604389, 1.443372, '12.000', 3, 2, 'https://www.welkeys.com/assets/img/photo_ville/Welkeys-conciergerie-gestion-airbnb-toulouse-alt.jpg'),
+(2, 'Gare Matabiau', '64 Boulevard Pierre Semard, 31079 Toulouse, France', 43.611237, 1.453747, '8.000', 2, 1, 'https://images.bird-office.com/prod/birdoffice/hub/reserver-une-salle-pres-de-la-gare-matabiau-a-toulouse_1487868132.jpeg'),
+(3, 'Appartement Thomas', '230 Avenue de Castres, 31500 Toulouse, France', 43.594231, 1.489365, '4.000', 1, 1, 'https://medias.logisneuf.com/occitanie/haute-garonne/toulouse/up-city/images/12461/large/V2.jpg'),
+(4, 'CESI', '6 Rue Magellan, 31670 Labège, France', 43.548317, 1.502877, '8.000', 2, NULL, 'http://corporate.cesi.fr/_uploads/images/user_campagnac_delphine/logo_cesialternance_okavril2014.png');
 
 -- --------------------------------------------------------
 
@@ -147,17 +147,18 @@ CREATE TABLE `gquser` (
   `usrPointsBalance` int(11) DEFAULT NULL,
   `usrRegisterDate` datetime DEFAULT NULL,
   `usrLastConnectionDate` datetime DEFAULT NULL,
-  `usrStsId` int(11) DEFAULT NULL
+  `usrStsId` int(11) DEFAULT NULL,
+  `usrImgUrl` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Contenu de la table `gquser`
 --
 
-INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastName`, `usrAddress`, `usrPassword`, `usrPointsBalance`, `usrRegisterDate`, `usrLastConnectionDate`, `usrStsId`) VALUES
-(1, 'Thomas', 'thomas.cazals@hotmail.fr', 'Thomas', 'Cazals', '230 avenue de Castres', 'tom', 22, '2017-10-29 00:00:00', '2017-10-29 00:00:00', 1),
-(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 23, '2017-12-13 00:00:00', '2017-12-13 00:00:00', 2),
-(3, 'Boulbi', 'thofsm', 'tgtgtg', 'gtgtg', '25 rue des marguerites', 'tom', 10, '2018-01-09 11:57:29', '2018-01-09 11:57:29', 1);
+INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastName`, `usrAddress`, `usrPassword`, `usrPointsBalance`, `usrRegisterDate`, `usrLastConnectionDate`, `usrStsId`, `usrImgUrl`) VALUES
+(1, 'Thomas', 'thomas.cazals@hotmail.fr', 'Thomas', 'Cazals', '230 avenue de Castres', 'tom', 20, '2017-10-29 00:00:00', '2017-10-29 00:00:00', 1, 'https://wallpaperscraft.com/image/gladiator_russell_crowe_maximus_warrior_shout_342_2732x2732.jpg'),
+(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 20, '2017-12-13 00:00:00', '2017-12-13 00:00:00', 2, 'https://img00.deviantart.net/222d/i/2015/029/5/a/toon_link_archer_by_shaynihx-d8fxi84.jpg'),
+(3, 'Boulbi', 'thofsm', 'tgtgtg', 'gtgtg', '25 rue des marguerites', 'tom', 10, '2018-01-09 11:57:29', '2018-01-09 11:57:29', 3, 'https://striclyhiphopmag.files.wordpress.com/2011/08/cover-vol021.jpg');
 
 -- --------------------------------------------------------
 
@@ -179,7 +180,8 @@ CREATE TABLE `gqwalk` (
 
 INSERT INTO `gqwalk` (`wkId`, `wkDateWalk`, `wkUsrIdOwner`, `wkUsrIdWalker`, `wkPlaceId`) VALUES
 (6, '2018-01-09 18:42:32', 2, 1, 1),
-(7, '2018-01-09 23:25:17', 2, 1, 1);
+(7, '2018-01-09 23:25:17', 2, 1, 1),
+(10, '2018-01-10 19:18:28', 1, 3, 3);
 
 --
 -- Index pour les tables exportées
@@ -274,7 +276,7 @@ ALTER TABLE `gquser`
 -- AUTO_INCREMENT pour la table `gqwalk`
 --
 ALTER TABLE `gqwalk`
-  MODIFY `wkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `wkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- Contraintes pour les tables exportées
 --
