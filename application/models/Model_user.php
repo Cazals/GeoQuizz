@@ -38,7 +38,6 @@ class Model_user extends CI_Model {
             "usrLastConnectionDate" =>date("Y-m-d H:i:s"),
             "usrStsId" =>$usrStsId,
         );
-
         $this->db->insert($this->table, $data);
     }
 

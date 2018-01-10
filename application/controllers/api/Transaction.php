@@ -47,12 +47,29 @@ class Transaction extends CI_Controller {
     }
 
     // Create a transaction
-//    public function create()
-//    {
-//
-//    }
-
-
+    public function create()
+    {
+        $content = file_get_contents("php://input");
+        //Make sure that it is a POST request.
+        if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
+            throw new Exception('Request method must be POST!');
+        }
+        //Receive the RAW post data.
+        $content = trim(file_get_contents("php://input"));
+        //Attempt to decode the incoming RAW post data from JSON.
+        $decoded = json_decode($content, true);
+        //If json_decode failed, the JSON is invalid.
+        if(!is_array($decoded)){
+            throw new Exception('Received content contained invalid JSON!');
+        }
+        $created = $this->Model_transaction->post(
+            $decoded[0]['transType'],
+            $decoded[0]['transPoints'],
+            $decoded[0]['transUsrIdBuyer'],
+            $decoded[0]['transUsrIdSeller'],
+            $decoded[0]['transPlaceId'],
+            TRUE);
+    }
 
 
     // Delete a transaction
@@ -67,12 +84,4 @@ class Transaction extends CI_Controller {
             echo json_encode("404: transaction $id not found");
         }
     }
-
-
-
-
-
 }
-
-/* End of file Product.php */
-/* Location: ./application/controllers/Product.php */

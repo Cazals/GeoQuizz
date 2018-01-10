@@ -23,31 +23,24 @@ class Model_transaction extends CI_Model {
         return $this->db->get();
     }
 
-    function post($transId,$transDate,$transType,$transPoints,$transUsrIdBuyer,$transUsrIdSeller,$transPlaceId)
+    function post($transType,$transPoints,$transUsrIdBuyer,$transUsrIdSeller,$transPlaceId)
     {
+        date_default_timezone_set('Europe/Paris');
         $data = array(
-            "transId"=>$transId,
-            "transDate"=>$transDate,
+            "transDate"=>date("Y-m-d H:i:s"),
             "transType"=>$transType,
             "transPoints"=>$transPoints,
             "transUsrIdBuyer"=>$transUsrIdBuyer,
             "transUsrIdSeller"=>$transUsrIdSeller,
             "transPlaceId"=>$transPlaceId
         );
-
+        echo json_encode($data);
         $this->db->insert($this->table, $data);
     }
-
-
-
 
     function delete($id)
     {
         $this->db->where_in("transId", $id)
             ->delete($this->table);
     }
-
 }
-
-/* End of file Model_product.php */
-/* Location: ./application/models/Model_product.php */

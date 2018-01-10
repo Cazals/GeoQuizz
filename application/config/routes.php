@@ -58,9 +58,9 @@ $route['api/place']['post']	          = 'api/place/create';
 $route['api/place/(:num)']['post']	  = 'api/place/update/$1';
 
 $route['api/transaction']['get']			  = 'api/transaction';
-$route['api/transaction/(:num)']['get']	  = 'api/transaction/view/$1';
-$route['api/transaction/(:num)']['delete'] = 'api/transaction/delete/$1';
-
+$route['api/transaction/(:num)']['get']	      = 'api/transaction/view/$1';
+$route['api/transaction/(:num)']['delete']    = 'api/transaction/delete/$1';
+$route['api/transaction']['post']			  = 'api/transaction/create';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
