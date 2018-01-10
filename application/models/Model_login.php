@@ -13,14 +13,16 @@ class Model_login extends CI_Model {
             ->where('usrLogin', $usrLogin)
             ->where('usrPassword', $usrPassword)
             ->limit(1);
-        $json = $this->db->get()->result();
-        if (empty($json)){
+        $usr = $this->db->get();
+        if (empty($usr)){
             return array('code'=> 2,'msg'=>'Erreur : Login ou Mot de passe invalide');
         }
         else {
             //Update last connection
-            $this->db->query("UPDATE gquser SET usrLastConnexionDate=NOW() WHERE usrLogin=".$username);
-            return array('code'=> 1, 'msg'=>'Connecté');
+            $usrId=$usr->row_array();
+
+            $this->db->query("UPDATE gquser SET usrLastConnectionDate=NOW() WHERE usrLogin='".$usrLogin."'");
+            return array('code'=> 1, 'msg'=>'Connecté','usrId'=>$usrId['usrId']);
         }
     }
     function userExists ($value,$dbName){
