@@ -69,8 +69,8 @@ function initMap() {
 }
 
 function charger_lieux_depuis_serveur(pos) {
-
-    var json = {"usrId": 3, "plcLat": pos.lat, "plcLon": pos.lng};
+    var idPlayer = Cookies.get('idPlayer');
+    var json = {"usrId": idPlayer, "plcLat": pos.lat, "plcLon": pos.lng};
     $.ajax(
         {
             // Your server script to process the upload
@@ -134,36 +134,48 @@ function creer_vignette_lieux(lieux) {
         plcUsrIdOwner = lieux.plcUsrIdOwner;
         plcCode = lieux.code;
     }
+    var urlIcon;
 
-    var cardWideInfo = jQuery('<div/>', {});
+    var cardWideInfo = jQuery('<div/>', {}).appendTo($('#ma_grille_de_lieux'));
     cardWideInfo.addClass('demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone');
     var cardTitle = jQuery('<div/>', {}).appendTo($(cardWideInfo));
-    cardTitle.addClass('mdl-card__title port');
+    cardTitle.addClass('mdl-card__title');
     var cardTitleText = jQuery('<h2/>', {text: plcName}).appendTo($(cardTitle));
     cardTitleText.addClass('mdl-card__title-text');
-    var cardSupportingText = jQuery('<div/>', {text: plcAddress}).appendTo($(cardTitleText));
+    var cardSupportingText = jQuery('<div/>', {text: plcAddress}).appendTo($(cardWideInfo));
     cardSupportingText.addClass('mdl-card__supporting-text');
     var cardAction = jQuery('<div/>', {}).appendTo($(cardWideInfo));
     cardAction.addClass = ('mdl-card__actions mdl-card--border');
 
-    var urlIcon;
-
     switch (parseInt(plcCode)) {
+
         case 1:
-            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + ((plcPrice*3)/4) + "pts" }).appendTo($(cardAction));
+            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + (plcPrice) + "pts" }).appendTo($(cardAction));
             buttonTransaction1.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
             //buttonTransaction.currentTarget(vendre)
             urlIcon = "../ressources/home-bought.png";
             break;
+
         case 2:
-            urlIcon = "../ressources/home-owned.png";
+            if(plcUsrIdOwner === null){
+                urlIcon = "../ressources/home-free.png";
+            }
+            else {
+                var info = jQuery('<div/>', {text: "Place owner: "  + (plcUsrIdOwner)}).appendTo($(cardAction));
+                info.addClass('mdl-card__supporting-text');
+                urlIcon = "../ressources/home-owned.png";
+
+             }
             break;
+
         case 3:
             var buttonTransaction3 = jQuery('<a/>', {text: "Buy for : " + plcPrice + "pts"}).appendTo($(cardAction));
             buttonTransaction3.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
             urlIcon = "../ressources/home-free.png";
             break;
+
         case 4:
+            var info = jQuery('<p/>', {text: "Place owner: "  + (plcUsrIdOwner)}).appendTo($(cardAction));
             urlIcon = ("../ressources/home-owned.png");
             break;
         //buttonTransaction.currentTarget(vendre)
@@ -192,9 +204,9 @@ function creer_vignette_lieux(lieux) {
     places.addListener('click', function () {
         infowindow.open(window.map, places);
     });
-    var styleInfoWindow = jQuery('<style/>', {text: ".demo-card-wide > .port{background: url('../ressources/port.jpg') center / cover}"});
+
     var infowindow = new google.maps.InfoWindow({
-        content: cardWideInfo + styleInfoWindow
+        content: cardWideInfo[0]
     });
 
 
