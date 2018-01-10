@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 09 Janvier 2018 à 11:06
+-- Généré le :  Mer 10 Janvier 2018 à 17:16
 -- Version du serveur :  5.7.11
 -- Version de PHP :  5.6.18
 
@@ -61,10 +61,11 @@ CREATE TABLE `gqplace` (
 --
 
 INSERT INTO `gqplace` (`plcId`, `plcName`, `plcAddress`, `plcLat`, `plcLon`, `plcPrice`, `plcWkPrice`, `plcUsrIdOwner`) VALUES
-(1, 'Capitole', '13 Place du Capitole, 31000 Toulouse, France', 43.604389, 1.443372, '15.000', 3, 2),
+(1, 'Capitole', 'place du capitole', 43.604389, 1.443372, '100.000', 10, 2),
 (2, 'Gare Matabiau', '64 Boulevard Pierre Semard, 31079 Toulouse, France', 43.611237, 1.453747, '10.000', 2, 1),
 (3, 'Appartement Thomas', '230 Avenue de Castres, 31500 Toulouse, France', 43.594231, 1.489365, '5.000', 1, 1),
-(4, 'CESI', '6 Rue Magellan, 31670 Labège, France', 43.548317, 1.502877, '10.000', 2, NULL);
+(4, 'CESI', '6 Rue Magellan, 31670 Labège, France', 43.548317, 1.502877, '10.000', 2, NULL),
+(12, 'efoefe', 'efef', 142.251999, 21.215000, '21.000', 3, NULL);
 
 -- --------------------------------------------------------
 
@@ -154,9 +155,9 @@ CREATE TABLE `gquser` (
 --
 
 INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastName`, `usrAddress`, `usrPassword`, `usrPointsBalance`, `usrRegisterDate`, `usrLastConnectionDate`, `usrStsId`) VALUES
-(1, 'Thomas', 'tom@tom', 'Thomas', 'Cazals', '230 avenue de Castres 31500 Toulouse', 'azerty', 506, '2017-10-29 00:00:00', '2017-10-29 00:00:00', 1),
-(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 36, '2017-12-13 00:00:00', '2017-12-13 00:00:00', 2),
-(3, 'Boulbi', 'thofsm', 'tgtgtg', 'gtgtg', '25 rue des marguerites', 'tom', 33, '2018-01-09 11:57:29', '2018-01-09 11:57:29', 1);
+(1, 'Thomas', 'thomas.cazals@hotmail.fr', 'Thomas', 'Cazals', '230 avenue de Castres', 'tom', 22, '2017-10-29 00:00:00', '2017-10-29 00:00:00', 1),
+(2, 'Matthieu', 'mamt@bob', 'Matthieu', 'Balondrade', '25 rue des fraises 69 001 Lyon', '1234', 23, '2017-12-13 00:00:00', '2017-12-13 00:00:00', 2),
+(3, 'Boulbi', 'thofsm', 'tgtgtg', 'gtgtg', '25 rue des marguerites', 'tom', 10, '2018-01-09 11:57:29', '2018-01-09 11:57:29', 1);
 
 -- --------------------------------------------------------
 
@@ -165,6 +166,7 @@ INSERT INTO `gquser` (`usrId`, `usrLogin`, `usrEmail`, `usrFirstName`, `usrLastN
 --
 
 CREATE TABLE `gqwalk` (
+  `wkId` int(11) NOT NULL,
   `wkDateWalk` datetime DEFAULT NULL,
   `wkUsrIdOwner` int(11) DEFAULT NULL,
   `wkUsrIdWalker` int(11) DEFAULT NULL,
@@ -175,11 +177,9 @@ CREATE TABLE `gqwalk` (
 -- Contenu de la table `gqwalk`
 --
 
-INSERT INTO `gqwalk` (`wkDateWalk`, `wkUsrIdOwner`, `wkUsrIdWalker`, `wkPlaceId`) VALUES
-('2017-12-18 00:00:00', 1, 2, 3),
-('2018-01-09 09:33:00', 2, 1, 1),
-('2018-01-09 10:39:19', 2, 1, 1),
-('2018-01-09 12:04:13', 2, 1, 1);
+INSERT INTO `gqwalk` (`wkId`, `wkDateWalk`, `wkUsrIdOwner`, `wkUsrIdWalker`, `wkPlaceId`) VALUES
+(6, '2018-01-09 18:42:32', 2, 1, 1),
+(7, '2018-01-09 23:25:17', 2, 1, 1);
 
 --
 -- Index pour les tables exportées
@@ -231,6 +231,7 @@ ALTER TABLE `gquser`
 -- Index pour la table `gqwalk`
 --
 ALTER TABLE `gqwalk`
+  ADD PRIMARY KEY (`wkId`),
   ADD KEY `FK_gqRent_UsrId` (`wkUsrIdOwner`),
   ADD KEY `FK_gqRent_UsrId_gqUser` (`wkUsrIdWalker`),
   ADD KEY `FK_gqRent_PlaceId` (`wkPlaceId`);
@@ -248,7 +249,7 @@ ALTER TABLE `gqparameters`
 -- AUTO_INCREMENT pour la table `gqplace`
 --
 ALTER TABLE `gqplace`
-  MODIFY `plcId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `plcId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT pour la table `gqstatus`
 --
@@ -269,6 +270,11 @@ ALTER TABLE `gqtranstype`
 --
 ALTER TABLE `gquser`
   MODIFY `usrId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT pour la table `gqwalk`
+--
+ALTER TABLE `gqwalk`
+  MODIFY `wkId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- Contraintes pour les tables exportées
 --
