@@ -20,7 +20,7 @@ class User extends CI_Controller {
                 $result[] = array("usrId" => intval($row->usrId), "usrLogin" => $row->usrLogin, "usrEmail" => $row->usrEmail,
                     "usrFirstName" =>$row->usrFirstName,"usrLastName" =>$row->usrLastName,"usrAddress" =>$row->usrAddress,
                     "usrPassword" =>$row->usrPassword,"usrPointsBalance" =>$row->usrPointsBalance,"usrRegisterDate" =>$row->usrRegisterDate,
-                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId);
+                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId,"usrImgUrl"=>$row->usrImgUrl);
             }
             echo json_encode($result);
         } else {
@@ -39,7 +39,7 @@ class User extends CI_Controller {
                 $result[] = array("usrId" => intval($row->usrId), "usrLogin" => $row->usrLogin, "usrEmail" => $row->usrEmail,
                     "usrFirstName" =>$row->usrFirstName,"usrLastName" =>$row->usrLastName,"usrAddress" =>$row->usrAddress,
                     "usrPassword" =>$row->usrPassword,"usrPointsBalance" =>$row->usrPointsBalance,"usrRegisterDate" =>$row->usrRegisterDate,
-                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId);
+                    "usrLastConnectionDate" =>$row->usrLastConnectionDate,"usrStsId" =>$row->usrStsId,"usrImgUrl"=>$row->usrImgUrl);
             }
             echo json_encode($result);
         } else {
@@ -81,7 +81,9 @@ class User extends CI_Controller {
                     $decoded[0]['usrPassword'],
                     $decoded[0]['usrPointsBalance'],
                     $decoded[0]['usrStsId'],
+                    $decoded[0]['usrImgUrl'],
                     TRUE);
+        echo json_encode($updated);
     }
 
     // Delete a user
@@ -89,8 +91,8 @@ class User extends CI_Controller {
     {
         // If product exists
         if ($this->Model_user->get_one($id)->num_rows() == 1) {
-            $this->Model_user->delete($id);
-            echo json_encode("200: User #$id deleted");
+            $deleted=$this->Model_user->delete($id);
+            echo json_encode($deleted);
         } else {
             header("HTTP/1.0 404 Not Found");
             echo json_encode("404: User $id not found");

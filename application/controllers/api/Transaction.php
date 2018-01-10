@@ -69,6 +69,7 @@ class Transaction extends CI_Controller {
             $decoded[0]['transUsrIdSeller'],
             $decoded[0]['transPlaceId'],
             TRUE);
+        echo json_encode($created);
     }
 
 
@@ -77,8 +78,8 @@ class Transaction extends CI_Controller {
     {
         // If product exists
         if ($this->Model_transaction->get_one($id)->num_rows() == 1) {
-            $this->Model_transaction->delete($id);
-            echo json_encode("200: transaction #$id deleted");
+            $deleted=$this->Model_transaction->delete($id);
+            echo json_encode($deleted);
         } else {
             header("HTTP/1.0 404 Not Found");
             echo json_encode("404: transaction $id not found");

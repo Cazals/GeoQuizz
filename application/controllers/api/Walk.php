@@ -30,8 +30,8 @@ class Walk extends CI_Controller
         if(!is_array($decoded)){
             throw new Exception('Received content contained invalid JSON!');
         }
-        $question = $this->Model_walk->post($decoded[0]['plcLat'],$decoded[0]['plcLon'],$decoded[0]['usrId'], TRUE);
+        $places = $this->Model_walk->post($decoded[0]['plcLat'],$decoded[0]['plcLon'],$decoded[0]['usrId'], TRUE);
         //echo $question;
-        echo $question;
+        echo $places;
     }
 }
