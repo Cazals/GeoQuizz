@@ -45,7 +45,10 @@
             <input class="mdl-textfield__input" type="password" id="c_password"/>
             <label class="mdl-textfield__label" for="c_password">Password</label>
         </div>
-        <input class="mdl-textfield__input" type="file" id="c_image">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="url" id="c_image"/>
+            <label class="mdl-textfield__label" for="c_image">Image</label>
+        </div>
     </div>
     <div class="mdl-card__actions mdl-card--border">
         <a id="bouton_enregistrer_joueur">

@@ -64,15 +64,17 @@ $('#bouton_enregistrer_joueur').on('click', function () {
             contentType: 'application/json',
             dataType: 'json',
 
-            // Custom XMLHttpRequest
             xhr: function () {
                 var myXhr = $.ajaxSettings.xhr();
 
                 myXhr.addEventListener('readystatechange', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
-                        var resultat = myXhr.responseText;
-                        console.log(myXhr.status);
-                        creer_vignette_joueur_data(resultat);
+                        var resultat = JSON.parse(myXhr.responseText);
+
+                        for (var i = 0; i < resultat.length; i++) {
+                            var unJoueur = resultat[i];
+                            creer_vignette_joueur(unJoueur);
+                        }
                     }
                 });
                 return myXhr;
@@ -94,6 +96,8 @@ function creer_vignette_joueur(player) {
     var lastName;
     var points;
     var registerDate;
+    var usrImgUrl;
+    var usrStsId;
     if (player != null) {
         login = player.usrLogin;
         idPlayer = player.usrId;
@@ -103,6 +107,8 @@ function creer_vignette_joueur(player) {
         firstName = player.usrFirstName;
         lastName = player.usrLastName;
         points = player.usrPointsBalance;
+        usrImgUrl = player.usrImgUrl;
+        usrStsId = player.usrStsId;
     }
 
     //on procède a la création de la vignette
@@ -113,6 +119,7 @@ function creer_vignette_joueur(player) {
     var titre_vignette_joueur = jQuery('<div/>', {}).appendTo(vignette_joueur);
     titre_vignette_joueur.addClass('mdl-card__title mdl-card--expand');
 
+    titre_vignette_joueur.css("background", "url(" + usrImgUrl + ") center / cover");
     var titre_vignette_joueur2 = jQuery('<h2/>', {
         text: login
     }).appendTo(titre_vignette_joueur);
@@ -137,6 +144,10 @@ function creer_vignette_joueur(player) {
     }).appendTo(boutons_vignette_joueur);
     bouton_ban_vignette_joueur.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_bannir');
     bouton_ban_vignette_joueur.attr('usrId', idPlayer);
+    if(usrStsId === 3){
+        vignette_joueur.css("border", "red, 10px")
+    }
+
     bouton_ban_vignette_joueur.on('click', function (e) {
         bannir_joueur(e.currentTarget);
     });
@@ -164,13 +175,14 @@ $('.bouton_bannir').on('click', function (e) {
 });
 
 function bannir_joueur(joueur) {
-    var id_joueur = joueur.getAttribute("usrId");
 
+    var json = {"usrLogin": joueur.getAttribute("usrLogin") ,"usrEmail": joueur.getAttribute("usrEmail"),"usrFirstName": joueur.getAttribute("usrFirstName") ,"usrLastName":joueur.getAttribute("usrLastName"),"usrAddress": joueur.getAttribute("usrAddress") ,"usrPassword":joueur.getAttribute("usrPassword"), "usrStsId": 3};
     $.ajax(
         {
             // Your server script to process the upload
-            url: 'GeoQuizz/api/user/ban/' + id_joueur,
+            url: '/GeoQuizz/api/user/',
             type: 'POST',
+            data: '[' + JSON.stringify(json) + ']',
 
             // Tell jQuery not to process data or worry about content-type
             // You must include these options!
@@ -194,7 +206,7 @@ function bannir_joueur(joueur) {
 
 
 function supprimer_vignette(vignette) {
-    var id_joueur = vignette.getAttribute("id_joueur");
+    var id_joueur = vignette.getAttribute("usrId");
     $($($(vignette).parent()).parent()).fadeOut(500);
 
 
@@ -204,8 +216,8 @@ function supprimer_vignette(vignette) {
     $.ajax(
         {
             // Your server script to process the upload
-            url: 'GeoQuizz/api/user/delete/' + id_joueur,
-            type: 'POST',
+            url: '/GeoQuizz/api/user/' + id_joueur,
+            type: 'DELETE',
 
             // Tell jQuery not to process data or worry about content-type
             // You must include these options!
