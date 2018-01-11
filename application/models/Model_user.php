@@ -58,12 +58,11 @@ class Model_user extends CI_Model {
 
     function delete($id)
     {
-        $this->db->where_in("usrId", $id)
-            ->delete($this->table);
-
         // Remove user from place's owner column
         $this->db->query("UPDATE gqplace SET plcUsrIdOwner=NULL
                               WHERE plcUsrIdOwner=".intval($id));
+        $this->db->where_in("usrId", $id)
+            ->delete($this->table);
 
         return array('code'=> 1, 'msg'=>'Suppression effectué avec succés');
     }
