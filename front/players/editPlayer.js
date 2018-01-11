@@ -118,10 +118,8 @@ function creer_vignette_joueur(player) {
 
     var titre_vignette_joueur = jQuery('<div/>', {}).appendTo(vignette_joueur);
     titre_vignette_joueur.addClass('mdl-card__title mdl-card--expand');
-
     titre_vignette_joueur.css("background", "url(" + usrImgUrl + ") center / cover");
     var titre_vignette_joueur2 = jQuery('<h2/>', {
-        text: login
     }).appendTo(titre_vignette_joueur);
     titre_vignette_joueur2.addClass('mdl-card__title-text');
 
@@ -144,10 +142,6 @@ function creer_vignette_joueur(player) {
     }).appendTo(boutons_vignette_joueur);
     bouton_ban_vignette_joueur.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_bannir');
     bouton_ban_vignette_joueur.attr('usrId', idPlayer);
-    if(usrStsId === 3){
-        vignette_joueur.css("border", "red, 10px")
-    }
-
     bouton_ban_vignette_joueur.on('click', function (e) {
         bannir_joueur(e.currentTarget);
     });
@@ -163,26 +157,14 @@ function creer_vignette_joueur(player) {
 
 }
 
+$('.bouton_modifier').on('click', function (e) {
+    window.userId  = $('.bouton_modifier').getAttribute("usrId");
 
-//fonction de suppresssion du joueur
-$('.bouton_supprimer').on('click', function (e) {
-    supprimer_vignette(e.currentTarget);
-
-});
-
-$('.bouton_bannir').on('click', function (e) {
-    bannir_joueur(e.currentTarget);
-});
-
-function bannir_joueur(joueur) {
-
-    var json = {"usrLogin": joueur.getAttribute("usrLogin") ,"usrEmail": joueur.getAttribute("usrEmail"),"usrFirstName": joueur.getAttribute("usrFirstName") ,"usrLastName":joueur.getAttribute("usrLastName"),"usrAddress": joueur.getAttribute("usrAddress") ,"usrPassword":joueur.getAttribute("usrPassword"), "usrStsId": 3};
     $.ajax(
         {
             // Your server script to process the upload
-            url: '/GeoQuizz/api/user/',
-            type: 'POST',
-            data: '[' + JSON.stringify(json) + ']',
+            url: '/GeoQuizz/api/user/' + window.userId,
+            type: 'GET',
 
             // Tell jQuery not to process data or worry about content-type
             // You must include these options!
@@ -196,12 +178,202 @@ function bannir_joueur(joueur) {
 
                 myXhr.addEventListener('readystatechange', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                        console.log(myXhr.responseText);
                         var resultat = JSON.parse(myXhr.responseText);
+
+                        for (var i = 0; i < resultat.length; i++) {
+                            var unJoueur = resultat[i];
+                            setPlayer(unJoueur)
+                        }
                     }
                 });
                 return myXhr;
             }
         });
+function setPlayer(unJoueur) {
+    usrLogin = unJoueur.usrLogin;
+    usrEmail = unJoueur.usrEmail;
+    usrFirstName = unJoueur.usrFirstName;
+    usrLastName = unJoueur.usrLastName;
+    usrAddress = unJoueur.usrAddress;
+    usrPassword = unJoueur.usrPassword;
+    usrId = unJoueur.usrId;
+    usrImgUrl = unJoueur.usrImgUrl;
+    usrStsId = unJoueur.usrStsId;
+    usrPointsBalance = unJoueur.usrPointsBalance;
+
+    //INITIALIZE FORM
+    $('#c_pseudo2').val(usrLogin);
+    // no id because its created directly from DB
+    $('#c_lastName2').val(usrLastName);
+    $('#c_firstName2').val(usrFirstName);
+    $('#c_address2').val(usrAddress);
+    $('#c_email2').val(usrEmail);
+    $('#c_image2').val(usrImgUrl);
+    $('#c_password2').val(usrPassword);
+    $('#c_balancePoints').val(usrPointsBalance);
+    $('#c_status2').val(usrStsId);
+
+    $('#mon_formulaire_modif_joueur').fadeIn(500);
+}
+});
+
+$('.bouton_enregister_modif').on('click', function (e) {
+
+    //GET FIELD UPDATED
+    var pseudoUpdated = $('#c_pseudo').val();
+    // no id because its created directly from DB
+    var lastNameUpdated = $('#c_lastName').val();
+    var firstNameUpdated = $('#c_firstName').val();
+    var addressUpdated =$('#c_address').val();
+    var emailUpdated = $('#c_email').val();
+    var usrImgUpdated =$('#c_image').val();
+    var passwordUpdated =$('#c_password').val();
+    var balancePointUpdated =$('#c_balancePoints').val();
+    var statusUpdated = $('#c_status').val();
+
+    modifier_vignette(pseudoUpdated, lastNameUpdated, firstNameUpdated, addressUpdated, emailUpdated, usrImgUpdated, passwordUpdated, balancePointUpdated, statusUpdated)
+});
+
+
+//fonction de suppresssion du joueur
+$('.bouton_supprimer').on('click', function (e) {
+    supprimer_vignette(e.currentTarget);
+
+});
+
+$('.bouton_bannir').on('click', function (e) {
+    bannir_joueur(e.currentTarget);
+});
+
+function modifier_vignette(pseudoUpdated, lastNameUpdated,firstNameUpdated,addressUpdated,emailUpdated,usrImgUpdated,passwordUpdated,balancePointUpdated, statusUpdated) {
+
+        var json = {
+            "usrLogin": pseudoUpdated,
+            "usrEmail": emailUpdated,
+            "usrFirstName": firstNameUpdated,
+            "usrLastName": lastNameUpdated,
+            "usrAddress": addressUpdated,
+            "usrPassword": passwordUpdated,
+            "usrId": window.userId,
+            "usrImgUrl": usrImgUpdated,
+            "usrStsId": statusUpdated,
+            "usrPointsBalance": balancePointUpdated
+        };
+
+        $.ajax(
+            {
+                // Your server script to process the upload
+                url: '/GeoQuizz/api/user/',
+                type: 'POST',
+                data: '[' + JSON.stringify(json) + ']',
+
+                // Tell jQuery not to process data or worry about content-type
+                // You must include these options!
+                cache: false,
+                contentType: false,
+                processData: false,
+
+                // Custom XMLHttpRequest
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+
+                    myXhr.addEventListener('readystatechange', function () {
+                        if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                            var resultat = JSON.parse(myXhr.responseText);
+                        }
+                    });
+                    return myXhr;
+                }
+            });
+}
+
+function bannir_joueur(joueur) {
+    var idPlayer = joueur.getAttribute("usrId");
+
+    $.ajax(
+        {
+            // Your server script to process the upload
+            url: '/GeoQuizz/api/user/' + idPlayer,
+            type: 'GET',
+
+            // Tell jQuery not to process data or worry about content-type
+            // You must include these options!
+            cache: false,
+            contentType: false,
+            processData: false,
+
+            // Custom XMLHttpRequest
+            xhr: function () {
+                var myXhr = $.ajaxSettings.xhr();
+
+                myXhr.addEventListener('readystatechange', function () {
+                    if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                        console.log(myXhr.responseText);
+                        var resultat = JSON.parse(myXhr.responseText);
+
+                        for (var i = 0; i < resultat.length; i++) {
+                            var unJoueur = resultat[i];
+                            banPlayerFromGet(unJoueur);
+
+                        }
+                    }
+                });
+                return myXhr;
+            }
+        });
+
+    function banPlayerFromGet(unJoueur) {
+        usrLogin = unJoueur.usrLogin;
+        usrEmail = unJoueur.usrEmail;
+        usrFirstName = unJoueur.usrFirstName;
+        usrLastName = unJoueur.usrLastName;
+        usrAddress = unJoueur.usrAddress;
+        usrPassword = unJoueur.usrPassword;
+        usrId = unJoueur.usrId;
+        usrImgUrl = unJoueur.usrImgUrl;
+        usrStsId = 3;
+        usrPointsBalance = unJoueur.usrPointsBalance;
+
+        var json = {
+            "usrLogin": usrLogin,
+            "usrEmail": usrEmail,
+            "usrFirstName": usrFirstName,
+            "usrLastName": usrLastName,
+            "usrAddress": usrAddress,
+            "usrPassword": usrPassword,
+            "usrId": usrId,
+            "usrImgUrl": usrImgUrl,
+            "usrStsId": usrStsId,
+            "usrPointsBalance": usrPointsBalance
+        };
+
+        $.ajax(
+            {
+                // Your server script to process the upload
+                url: '/GeoQuizz/api/user/',
+                type: 'POST',
+                data: '[' + JSON.stringify(json) + ']',
+
+                // Tell jQuery not to process data or worry about content-type
+                // You must include these options!
+                cache: false,
+                contentType: false,
+                processData: false,
+
+                // Custom XMLHttpRequest
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+
+                    myXhr.addEventListener('readystatechange', function () {
+                        if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                            var resultat = JSON.parse(myXhr.responseText);
+                        }
+                    });
+                    return myXhr;
+                }
+            });
+    }
 }
 
 
