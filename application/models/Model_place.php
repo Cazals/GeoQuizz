@@ -26,7 +26,7 @@ class Model_place extends CI_Model {
 
     function post($plcName, $plcAddress, $plcLat, $plcLon, $plcPrice, $plcWkPrice,$plcImgUrl)
     {
-        if (!testCrossingPlace($plcLat,$plcLon,0)) {
+        if (!$this->testCrossingPlace($plcLat,$plcLon,0)) {
             $data = array(
                 "plcName" => $plcName,
                 "plcAddress" => $plcAddress,
@@ -46,7 +46,7 @@ class Model_place extends CI_Model {
 
     function patch($plcId,$plcName,$plcAddress,$plcLat,$plcLon,$plcPrice,$plcWkPrice,$plcUsrIdOwner,$plcImgUrl)
     {
-        if (!testCrossingPlace($plcLat,$plcLon,$plcId))
+        if (!$this->testCrossingPlace($plcLat,$plcLon,$plcId))
         {
             $con=mysqli_connect("localhost","root","root","geoquizz");
             $this->db->query("UPDATE gqplace SET plcName='".mysqli_real_escape_string($con,$plcName)."', 
@@ -83,9 +83,10 @@ class Model_place extends CI_Model {
     }
 
     function testCrossingPlace($plcLat,$plcLon,$plcId){
-        $crossingPlace=$this->db->query("SELECT plcId, 6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
-                                         radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance
-                                         WHERE (plcId<>".$plcId." OR plcId IS NULL) AND distance<0.05");
+        $crossingPlace=$this->db->query("SELECT plcId, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
+                                        radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance
+                                         FROM gqplace
+                                         HAVING (plcId<>".$plcId." OR plcId IS NULL) AND distance<0.05");
         if(!empty($crossingPlace->result())) {
             return True;
         }
