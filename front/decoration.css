@@ -11,6 +11,12 @@ html, body {
     padding-top: 4%;
 }
 
+#mon_formulaire_ajout_lieux{
+    z-index: 1;
+    margin:auto;
+    padding-top: 4%;
+}
+
 .page-content{
     height:1280px;
     width:1600px
