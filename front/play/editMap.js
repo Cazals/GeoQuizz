@@ -143,7 +143,7 @@ function creer_vignette_lieux(lieux) {
     cardWideInfo.addClass('demo-card-wide mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col-phone');
     var cardTitle = jQuery('<div/>', {}).appendTo($(cardWideInfo));
     cardTitle.addClass('mdl-card__title style');
-    var styleCard = jQuery('<style/>', {text: ".demo-card-wide > .style {background: url('" + plcImgUrl + "') center / cover}"});
+    cardTitle.css("background", "url(" + plcImgUrl + ") center / cover");
     var cardTitleText = jQuery('<h2/>', {text: plcName}).appendTo($(cardTitle));
     cardTitleText.addClass('mdl-card__title-text');
     var cardSupportingText = jQuery('<div/>', {text: plcAddress}).appendTo($(cardWideInfo));
@@ -154,22 +154,27 @@ function creer_vignette_lieux(lieux) {
     switch (parseInt(plcCode)) {
 
         case 1:
-            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + (parseInt(plcPrice) * 3/4) + " pts" }).appendTo($(cardAction));
+            var buttonTransaction1 = jQuery('<a/>', {text: "Sell for : " + (parseInt(plcPrice) * 3 / 4) + " pts"}).appendTo($(cardAction));
             buttonTransaction1.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect');
             //buttonTransaction.currentTarget(vendre)
             urlIcon = "../ressources/home-bought.png";
+            buttonTransaction1.attr("idLieux", plcId);
+            buttonTransaction1.attr("prixLieux", plcPrice);
+            buttonTransaction1.on('click', function (e) {
+                vendre_lieux(e.currentTarget);
+            });
             break;
 
         case 2:
-            if(plcUsrIdOwner === null){
+            if (plcUsrIdOwner === null) {
                 urlIcon = "../ressources/home-free.png";
             }
             else {
-                var info = jQuery('<div/>', {text: "Place owner: "  + (plcUsrIdOwner)}).appendTo($(cardAction));
+                var info = jQuery('<div/>', {text: "Place owner: " + (plcUsrIdOwner)}).appendTo($(cardAction));
                 info.addClass('mdl-card__supporting-text');
                 urlIcon = "../ressources/home-owned.png";
 
-             }
+            }
             break;
 
         case 3:
@@ -184,7 +189,7 @@ function creer_vignette_lieux(lieux) {
             break;
 
         case 4:
-            var info = jQuery('<p/>', {text: "Place owner: "  + (plcUsrIdOwner)}).appendTo($(cardAction));
+            var info = jQuery('<p/>', {text: "Place owner: " + (plcUsrIdOwner)}).appendTo($(cardAction));
             urlIcon = ("../ressources/home-owned.png");
             break;
         //buttonTransaction.currentTarget(vendre)
@@ -217,6 +222,91 @@ function creer_vignette_lieux(lieux) {
     var infowindow = new google.maps.InfoWindow({
         content: cardWideInfo[0]
     });
+}
+    function vendre_lieux(bouton) {
+        var idLieux = bouton.getAttribute("idLieux");
+        var prixLieux = bouton.getAttribute("prixLieux");
+        var idPlayer = Cookies.get('usrId');
+        $.ajax(
+            {
+                // Your server script to process the upload
+                url: '/GeoQuizz/api/user/' + idPlayer,
+                type: 'GET',
+
+                // Tell jQuery not to process data or worry about content-type
+                // You must include these options!
+                cache: false,
+                contentType: false,
+                processData: false,
+
+                // Custom XMLHttpRequest
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+
+                    myXhr.addEventListener('readystatechange', function () {
+                        if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                            console.log(myXhr.responseText);
+                            var resultat = JSON.parse(myXhr.responseText);
+
+                            for (var i = 0; i < resultat.length; i++) {
+                                var player = resultat[i];
+                                sellPlace(player);
+                            }
+                        }
+                    });
+                    return myXhr;
+                }
+            });
+
+        function sellPlace(player) {
+            var usrId = player.usrId;
+
+            var json ={"transType":3,"transPoints":parseInt(prixLieux),"transUsrIdBuyer":usrId,"transUsrIdSeller":null ,"transPlaceId":parseInt(idLieux) };
+            $.ajax(
+                {
+                    // Your server script to process the upload
+                    //TODO MODIFY
+                    url: '/GeoQuizz/api/transaction',
+                    type: "POST",
+                    data: "[" + JSON.stringify(json) + "]",
+                    contentType: 'application/json',
+                    dataType: 'json',
+
+                    // Custom XMLHttpRequest
+                    xhr: function () {
+                        var myXhr = $.ajaxSettings.xhr();
+
+                        myXhr.addEventListener('readystatechange', function () {
+                            if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                                console.log(myXhr.responseText);
+                                var resultat = JSON.parse(myXhr.responseText);
+                                var message = resultat.msg;
+                              //  snackbar(message);
+                            }
+                        });
+                        return myXhr;
+                    }
+                });
+        }
+
+      /*  function snackbar(message){
+            var demoToast = jQuery('<div/>', {});
+                demoToast.addClass("mdl-js-snackbar mdl-snackbar");
+                demoToast.attr("id", "demo-toast-example");
+
+            var mdlSnack = jQuery('<div/>', {}).appendTo(demoToast);
+            mdlSnack.addClass("mdl-snackbar__text");
+
+            var mdlSnackAction = jQuery('<button/>', {}).appendTo(demoToast);
+            mdlSnackAction.addClass("mdl-snackbar__action");
+            mdlSnackAction.attr("type", "button");
+
+            var snackbarContainer = document.querySelector('#demo-toast-example');
+            var data = {message: message};
+            snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        }*/
+    }
+
 function acheter_lieux(bouton) {
     var idLieux = bouton.getAttribute("idLieux");
     var prixLieux = bouton.getAttribute("prixLieux");
@@ -241,21 +331,24 @@ function acheter_lieux(bouton) {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
                         console.log(myXhr.responseText);
                         var resultat = JSON.parse(myXhr.responseText);
-                        buyPlace(resultat);
+
+                        for (var i = 0; i < resultat.length; i++) {
+                            var player = resultat[i];
+                            buyPlace(player);
+                        }
                     }
-                    return myXhr;
-                })
+                });
+                return myXhr;
             }
         });
 
-    function buyPlace(player) {
-        var usrId = player.usrId;
+    function buyPlace(playerId) {
+        var usrId = playerId.usrId;
 
-        var json ={"transType":1,"transPoints":parseInt(prixLieux),"transUsrIdBuyer":usrId,"transUsrIdSeller":null ,"transPlaceId":idLieux };
+        var json ={"transType":1,"transPoints":parseInt(prixLieux),"transUsrIdBuyer":usrId,"transUsrIdSeller":null ,"transPlaceId":parseInt(idLieux) };
         $.ajax(
             {
-                // Your server script to process the upload
-                //TODO MODIFY
+
                 url: '/GeoQuizz/api/transaction',
                 type: "POST",
                 data: "[" + JSON.stringify(json) + "]",
@@ -268,20 +361,14 @@ function acheter_lieux(bouton) {
 
                     myXhr.addEventListener('readystatechange', function () {
                         if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
+                            console.log(myXhr.responseText);
                             var resultat = JSON.parse(myXhr.responseText);
                             var message = resultat.msg;
-                            snackbar(message);
                         }
                     });
                     return myXhr;
                 }
             });
     }
-
-    function snackbar(message){
-        //TODO add snackbar with JQUERY
-        //code pour afficher la snackbar
-    }
-}
 
 }
