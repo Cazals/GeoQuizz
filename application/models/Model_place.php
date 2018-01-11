@@ -86,7 +86,7 @@ class Model_place extends CI_Model {
         $crossingPlace=$this->db->query("SELECT plcId, (6366*acos(cos(radians(".$plcLat."))*cos(radians(plcLat))*cos(radians(plcLon)-
                                         radians(".$plcLon."))+sin(radians(".$plcLat."))*sin(radians(plcLat)))) AS distance
                                          FROM gqplace
-                                         HAVING (plcId<>".$plcId." OR plcId IS NULL) AND distance<0.055");
+                                         HAVING (plcId<>".$plcId." OR plcId IS NULL) AND distance<0.105");
         if(!empty($crossingPlace->result())) {
             return True;
         }
