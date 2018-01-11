@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4ade9601-c0ca-4cad-b82d-1074f8b5e5ff" name="Default" comment="Commit cookie">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/front/places/editPlaces.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/decoration.css" afterPath="$PROJECT_DIR$/front/decoration.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/places/placesAdmin.php" afterPath="$PROJECT_DIR$/front/places/placesAdmin.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/editPlayer.js" afterPath="$PROJECT_DIR$/front/players/editPlayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/front/players/playerAdmin.php" afterPath="$PROJECT_DIR$/front/players/playerAdmin.php" />
     </list>
@@ -33,21 +30,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="editLogin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/front/editLogin.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-336">
-              <caret line="14" column="11" lean-forward="true" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="map.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/play/map.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
               <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="geoquizz.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/geoquizz.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -66,9 +63,11 @@
       <file leaf-file-name="playerAdmin.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="32" column="62" lean-forward="false" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
-              <folding />
+            <state relative-caret-position="470">
+              <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="36" />
+              <folding>
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -76,8 +75,8 @@
       <file leaf-file-name="editPlayer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="179" column="11" lean-forward="true" selection-start-line="179" selection-start-column="11" selection-end-line="179" selection-end-column="11" />
+            <state relative-caret-position="735">
+              <caret line="159" column="19" lean-forward="false" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -96,8 +95,8 @@
       <file leaf-file-name="decoration.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front/decoration.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
+            <state relative-caret-position="407">
+              <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -154,10 +153,11 @@
       <find>addAttribute</find>
       <find>usrImgUrl</find>
       <find>usr</find>
-      <find>mon</find>
-      <find>idPlayer</find>
       <find>player</find>
       <find>idPma</find>
+      <find>mon</find>
+      <find>parent</find>
+      <find>idPlayer</find>
     </findStrings>
     <replaceStrings>
       <replace>lat</replace>
@@ -214,10 +214,10 @@
         <option value="$PROJECT_DIR$/front/login.php" />
         <option value="$PROJECT_DIR$/front/editLogin.js" />
         <option value="$PROJECT_DIR$/front/play/editMap.js" />
-        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
-        <option value="$PROJECT_DIR$/front/decoration.css" />
         <option value="$PROJECT_DIR$/front/places/placesAdmin.php" />
         <option value="$PROJECT_DIR$/front/places/editPlaces.js" />
+        <option value="$PROJECT_DIR$/front/players/playerAdmin.php" />
+        <option value="$PROJECT_DIR$/front/decoration.css" />
         <option value="$PROJECT_DIR$/front/players/editPlayer.js" />
       </list>
     </option>
@@ -229,7 +229,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="55" />
     <option name="y" value="91" />
     <option name="width" value="976" />
@@ -349,7 +349,7 @@
       <workItem from="1513931831286" duration="7745000" />
       <workItem from="1515263158330" duration="11338000" />
       <workItem from="1515422950951" duration="73791000" />
-      <workItem from="1515621652214" duration="20366000" />
+      <workItem from="1515621652214" duration="24927000" />
     </task>
     <task id="LOCAL-00001" summary="Front: Added query to get users">
       <created>1515264581500</created>
@@ -369,7 +369,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128398000" />
+    <option name="totallyTimeSpent" value="132959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -381,7 +381,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15359828" sideWeight="0.8304348" order="0" side_tool="false" content_ui="combo" />
@@ -583,14 +583,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/geoquizz.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Model_login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="672">
@@ -649,14 +641,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/players/myProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-729">
-          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/play/map.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -689,22 +673,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/front/decoration.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="32" column="62" lean-forward="false" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front/places/placesAdmin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -721,10 +689,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/geoquizz.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="315" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/decoration.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/myProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-729">
+          <caret line="16" column="2" lean-forward="true" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front/players/playerAdmin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="62" column="36" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/front/players/editPlayer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="179" column="11" lean-forward="true" selection-start-line="179" selection-start-column="11" selection-end-line="179" selection-end-column="11" />
+        <state relative-caret-position="735">
+          <caret line="159" column="19" lean-forward="false" selection-start-line="159" selection-start-column="4" selection-end-line="159" selection-end-column="19" />
           <folding />
         </state>
       </provider>

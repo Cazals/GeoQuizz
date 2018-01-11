@@ -17,6 +17,12 @@ html, body {
     padding-top: 4%;
 }
 
+#mon_formulaire_modif_joueur{
+    z-index: 1;
+    margin:auto;
+    padding-top: 4%;
+}
+
 .page-content{
     height:1280px;
     width:1600px

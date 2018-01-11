@@ -59,6 +59,55 @@
     </div>
 </div>
 
+
+<div id="mon_formulaire_modif_joueur" class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col" style="display:none;">
+    <div class="mdl-card__supporting-text">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="c_pseudo2"/>
+            <label class="mdl-textfield__label" for="c_pseudo2">Login</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="email" id="c_email2"/>
+            <label class="mdl-textfield__label" for="c_email2">Email</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="c_firstName2"/>
+            <label class="mdl-textfield__label" for="c_firstName2">FirstName</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="c_lastName2"/>
+            <label class="mdl-textfield__label" for="c_lastName2">LastName</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="text" id="c_address2"/>
+            <label class="mdl-textfield__label" for="c_address2">Address</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="password" id="c_password2"/>
+            <label class="mdl-textfield__label" for="c_password2">Password</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="url" id="c_image2"/>
+            <label class="mdl-textfield__label" for="c_image2">Image</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="url" id="c_balancePoints"/>
+            <label class="mdl-textfield__label" for="c_balancePoints">BalancePoint</label>
+        </div>
+        <div class="mdl-textfield mdl-js-textfield">
+            <input class="mdl-textfield__input" type="url" id="c_status2"/>
+            <label class="mdl-textfield__label" for="c_status2">StatusId</label>
+        </div>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <a id="bouton_enregister_modif">
+            <button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Update
+            </button>
+        </a>
+    </div>
+</div>
+
 <script type="text/javascript" src="editPlayer.js"></script>
 
 </body>
