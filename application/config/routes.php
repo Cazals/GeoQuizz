@@ -62,6 +62,8 @@ $route['api/transaction/(:num)']['get']	      = 'api/transaction/view/$1';
 $route['api/transaction/(:num)']['delete']    = 'api/transaction/delete/$1';
 $route['api/transaction']['post']			  = 'api/transaction/create';
 
+$route['api/stats/(:num)']['get']	  = 'api/stats/sendStats/$1';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
