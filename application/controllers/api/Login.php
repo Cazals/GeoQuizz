@@ -46,8 +46,6 @@ class Login extends CI_Controller {
 
     public function register(){
 
-        //$content = file_get_contents("php://input");
-
         //Make sure that it is a POST request.
         if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
             throw new Exception('Request method must be POST!');
@@ -66,14 +64,12 @@ class Login extends CI_Controller {
         $New = true;
         $LogExist= false;
 
-
         //Test Login
         $testExistLog=$this->Model_login->userExists($decoded[0]['usrLogin'],'usrLogin', TRUE);
         if(!empty($testExistLog)){
             $LogExist= true;
             $New=false;
         }
-
 
         //Test Mail
         $testExistMail=$this->Model_login->userExists($decoded[0]['usrEmail'],'usrEmail', TRUE);
@@ -84,10 +80,8 @@ class Login extends CI_Controller {
             else {
                 echo json_encode($testExistMail);
             }
-
             $New=false;
         }
-
 
         if (!$New){
             echo json_encode($testExistLog);
@@ -98,8 +92,6 @@ class Login extends CI_Controller {
             $this->Model_user->post($decoded[0]['usrLogin'],$decoded[0]['usrEmail'],$decoded[0]['usrFirstName'],$decoded[0]['usrLastName'],
                                     $decoded[0]['usrAddress'],$decoded[0]['usrPassword'],30,2,$decoded[0]['usrImgUrl']);
             echo json_encode(array('code'=> 0,'msg'=>'Utilisateur créé avec succés'));
-
         }
-
     }
 }
