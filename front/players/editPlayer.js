@@ -27,7 +27,6 @@ function charger_joueur_depuis_serveur() {
                             var unJoueur = resultat[i];
                             creer_vignette_joueur(unJoueur);
                         }
-
                     }
                 });
                 return myXhr;
@@ -54,7 +53,7 @@ $('#bouton_enregistrer_joueur').on('click', function () {
     $('#mon_formulaire_ajout_joueur').fadeOut(500);
 
     //procéder à l'appel Ajajx pour ajouter sur le serveur le joueur , et on récupère le retour du serveur qui est en fait notre jeur créé en json (on avait deja toute le sinfos sauf l'ID
-    var json = {"username": login,"mail":email,"firstname":firstName ,"lastname":lastName,"address":address ,"password":password};
+    var json = {"usrLogin": login,"usrEmail":email,"usrFirstName":firstName ,"usrLastName":lastName,"usrAddress":address ,"usrPassword":password};
 
     $.ajax(
         {
@@ -73,7 +72,7 @@ $('#bouton_enregistrer_joueur').on('click', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
                         var resultat = myXhr.responseText;
                         console.log(myXhr.status);
-                        creer_vignette_joueur_data(resultat.username, resultat.firstname, resultat.lastname, resultat.mail, resultat.registerdate, resultat.address, resultat.points);
+                        creer_vignette_joueur_data(resultat);
                     }
                 });
                 return myXhr;
@@ -81,18 +80,8 @@ $('#bouton_enregistrer_joueur').on('click', function () {
         });
 });
 
-function creer_vignette_joueur_data(username, firstname, lastname, mail, registerdate, address, points) {
-    var myPlayer = {
-        login: username,
-        firstName: firstname,
-        lastName: lastname,
-        registerDate: registerdate,
-        Address: address,
-        Points: points,
-        email: mail
-    };
-
-    creer_vignette_joueur(myPlayer);
+function creer_vignette_joueur_data(player) {
+    creer_vignette_joueur(player);
 }
 
 function creer_vignette_joueur(player) {
@@ -106,14 +95,14 @@ function creer_vignette_joueur(player) {
     var points;
     var registerDate;
     if (player != null) {
-        login = player.login;
-        idPlayer = player.id;
-        registerDate = player.registerDate;
-        email = player.email;
-        address = player.Address;
-        firstName = player.firstName;
-        lastName = player.lastName;
-        points = player.Points;
+        login = player.usrLogin;
+        idPlayer = player.usrId;
+        registerDate = player.usrRegisterDate;
+        email = player.usrEmail;
+        address = player.usrAddress;
+        firstName = player.usrFirstName;
+        lastName = player.usrLastName;
+        points = player.usrPointsBalance;
     }
 
     //on procède a la création de la vignette
@@ -141,13 +130,13 @@ function creer_vignette_joueur(player) {
         text: "Modify"
     }).appendTo(boutons_vignette_joueur);
     bouton_modify_vignette_joueur.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_modifier');
-    bouton_modify_vignette_joueur.attr('id', idPlayer);
+    bouton_modify_vignette_joueur.attr('usrId', idPlayer);
 
     var bouton_ban_vignette_joueur = jQuery('<a/>', {
         text: "Ban"
     }).appendTo(boutons_vignette_joueur);
     bouton_ban_vignette_joueur.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_bannir');
-    bouton_ban_vignette_joueur.attr('id', idPlayer);
+    bouton_ban_vignette_joueur.attr('usrId', idPlayer);
     bouton_ban_vignette_joueur.on('click', function (e) {
         bannir_joueur(e.currentTarget);
     });
@@ -156,7 +145,7 @@ function creer_vignette_joueur(player) {
         text: "Delete"
     }).appendTo(boutons_vignette_joueur);
     bouton_del_vignette_joueur.addClass('mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect bouton_supprimer');
-    bouton_del_vignette_joueur.attr('id', idPlayer);
+    bouton_del_vignette_joueur.attr('usrId', idPlayer);
     bouton_del_vignette_joueur.on('click', function (e) {
         supprimer_vignette(e.currentTarget);
     })
@@ -175,7 +164,7 @@ $('.bouton_bannir').on('click', function (e) {
 });
 
 function bannir_joueur(joueur) {
-    var id_joueur = joueur.getAttribute("id");
+    var id_joueur = joueur.getAttribute("usrId");
 
     $.ajax(
         {
@@ -196,7 +185,6 @@ function bannir_joueur(joueur) {
                 myXhr.addEventListener('readystatechange', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
                         var resultat = JSON.parse(myXhr.responseText);
-                        resultat_connection(resultat);
                     }
                 });
                 return myXhr;
@@ -231,8 +219,7 @@ function supprimer_vignette(vignette) {
 
                 myXhr.addEventListener('readystatechange', function () {
                     if (myXhr.readyState == XMLHttpRequest.DONE && myXhr.status == 200) {
-                        var resultat = JSON.parse(myXhr.responseText)
-                        resultat_connection(resultat);
+                        var resultat = JSON.parse(myXhr.responseText);
                     }
                 });
                 return myXhr;
